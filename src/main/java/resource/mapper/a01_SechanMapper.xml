@@ -5,7 +5,7 @@
 <mapper namespace="pms.a01_Sechan.a03_DAO.rplanDao">
 	
 	<select id="rplanList" resultType="rplan" parameterType="rplan">
-		select *
+		<!-- select *
 	 	from REVIEWPLAN
 		 where 1=1
 	 	<if test="rplanname != null">
@@ -13,7 +13,12 @@
 		 </if>
 		 <if test="prjname != null">
 		 AND prjname LIKE '%'||#{prjname}||'%' 
-		 </if>
+		 </if> -->
+		 SELECT DISTINCT  r.*,p.*
+		 FROM REVIEWPLAN r , PROJECT p
+		 WHERE r.PRJNO  =#{prjNo}
+		 AND r.PRJNO = p.PRJNO
+		 
 		 
 		 
 	</select>
@@ -25,34 +30,34 @@
 	 	<if test="prjName != null">
 		 AND prjName LIKE '%'||#{prjName}||'%'
 		</if>
+		<!--
+		SELECT e.ENAME pmname, p.*
+		FROM PROJECT p , PRJEMPLIST p2 , EMP e 
+		WHERE p.PRJNO = p2.PRJNO 
+		AND p2.EMPNO = e.EMPNO
+		AND e.AUTH = 'PM'
+		AND p.PRJNO  =#{prjNo}
+		  -->
 		 
 		 
 	</select>
 	
 	  
-	<select id="fbplanList" resultType="fbplan" parameterType="fbplan">
-		select *
-	 	from feedback
-		 where 1=1
-	 	<if test="fbplanname != null">
-		 AND fbplanname LIKE '%'||#{fbplanname}||'%'
-		 </if>
-		 <if test="feedbackname != null">
-		 AND feedbackname LIKE '%'||#{feedbackname}||'%' 
-		 </if>
+	<select id="fbplanList" resultType="fbplan" parameterType="string">
+		SELECT * FROM FEEDBACK
+		WHERE riskno = #{riskNo}
 	</select>
 	
-	<insert id="insertrplan"  parameterType="rplan">		
-		INSERT INTO REVIEWPLAN values(rplan_seq.nextval,#{rplanname},#{rplanstep},
-		#{clientrequire},#{specialnote},#{requestdate}
-		,#{approvaldate},#{rplanstatus},#{prjname},#{pmname})
+	<insert id="insertrplan" parameterType="rplan">		
+		INSERT INTO REVIEWPLAN values('RP'||rplanNo_seq.nextval, #{rplanName}, #{rplanStep},
+		#{clientRequire}, #{specialNote}, #{rplanNote}, #{requestDate}
+		, #{approvalDate}, '미승인', #{prjNo})
 	</insert>
 	
 	<insert id="insertfbplan"  parameterType="fbplan">		
-		INSERT INTO feedback values(fbplan_seq.nextval,#{feedbackname},
-		#{fbplanname},#{fbstartdate},#{fbenddate},#{fbstep},#{feedbackitem},
-		#{fbstatus},#{fbnote},#{pmname}
-		)
+		INSERT INTO feedback values('F'||feedback_seq.nextval,#{feedbackName} ,#{fbStartDate}, #{fbEndDate},
+		#{fbStep}, #{feedbackItem}, #{fbNote}, '미승인', #{riskNo})
+		
 	</insert>
 	
 	
@@ -62,31 +67,59 @@
 		WHERE RPLANNO = #{rplanno}
 	</delete>	
 	
-	<select id="getRplanDetail" resultType="rplan" parameterType="int">
-		select *
-		 from REVIEWPLAN
-		  where rplanno = #{rplanno}
+	<select id="getRplanDetail" resultType="rplan" parameterType="String">
+		SELECT DISTINCT e.ENAME pmname, r.*
+		FROM REVIEWPLAN r ,PROJECT p , PRJEMPLIST p2, EMP e 
+		WHERE r.PRJNO = p.PRJNO
+		AND p.PRJNO = p2.PRJNO
+		AND p2.EMPNO = e.EMPNO
+		AND e.AUTH = 'PM'
+		AND r.RPLANNO  = #{rplanNo}
 	</select>	
 	
-	<select id="getFbplanDetail" resultType="fbplan" parameterType="int">
-		select *
-		 from feedback
-		 where feedbackno = #{fbplanno}
+	<select id="getFbplanDetail" resultType="fbplan" parameterType="String">
+		SELECT DISTINCT e.ENAME pmname , f.*, r.RPLANNAME  
+		FROM REVIEWPLAN r , RISK r2 , FEEDBACK f, PROJECT p , PRJEMPLIST p2, EMP e 
+		WHERE e.EMPNO = p2.EMPNO  
+		AND p.PRJNO = p2.PRJNO 
+		AND p.PRJNO = r.PRJNO 
+		AND r.RPLANNO = r2.RPLANNO
+		AND r2.RISKNO = f.RISKNO
+		AND e.AUTH = 'PM'
+		AND f.FEEDBACKNO  = #{feedbackNo}
 	</select>	
 	
 	<update id="updateRplan" parameterType="rplan">
 		UPDATE REVIEWPLAN 
-			SET rplanname =#{rplanname},
-				clientrequire =#{clientrequire},
-				rplanstep = #{rplanstep},		
-				specialnote = #{specialnote}		
-		WHERE rplanno = #{rplanno}
+			SET rplanname =#{rplanName},
+				clientrequire =#{clientRequire},
+				rplanstep = #{rplanStep},		
+				specialnote = #{specialNote}		
+		WHERE rplanno = #{rplanNo}
 	</update>
 	
 	<update id="updateRplanStatus" parameterType="rplan">
 		UPDATE REVIEWPLAN 
 			SET rplanstatus = '승인'			
-		WHERE rplanno = #{rplanno}
+		WHERE rplanno = #{rplanNo}
+	</update>
+	
+	<update id="updateFbplanStatus" parameterType="rplan">
+		UPDATE feedback 
+			SET fbStatus = '승인'			
+		WHERE feedbackNo = #{feedbackNo}
+	</update>
+	
+	<update id="updateRplanStatusRJ" parameterType="rplan">
+		UPDATE REVIEWPLAN 
+			SET rplanstatus = '반려'			
+		WHERE rplanno = #{rplanNo}
+	</update>
+	
+	<update id="updateFbplanStatusRJ" parameterType="rplan">
+		UPDATE feedback 
+			SET fbStatus = '반려'			
+		WHERE feedbackNo = #{feedbackNo}
 	</update>
 	
 </mapper>

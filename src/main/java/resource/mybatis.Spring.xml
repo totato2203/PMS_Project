@@ -6,18 +6,21 @@
 		
 		<typeAlias alias="emp" type="pms.a01_Haeun.a04_VO.Emp"/>
 		<typeAlias alias="empfile" type="pms.a01_Haeun.a04_VO.EmpFile"/>
-		
+	    <typeAlias alias="project" type="pms.a01_Haeun.a04_VO.Project"/>
+	    <typeAlias alias="calendar" type="pms.a01_Haeun.a04_VO.Calendar"/>
+
 		<typeAlias alias="rplan" type="pms.a01_Sechan.a04_VO.Reviewplan"/>
 		<typeAlias alias="fbplan" type="pms.a01_Sechan.a04_VO.feedback"/>
 		<typeAlias alias="prj" type="pms.a01_Sechan.a04_VO.project"/>
 		
+		<typeAlias alias="caldar" type="pms.a01_Jongdae.a04_VO.Calendar"/>
 		<typeAlias alias="costprj" type="pms.a01_Jongdae.a04_VO.CostPrj"/>
-      	<typeAlias alias="roadmap" type="pms.a01_Jongdae.a04_VO.RoadMap"/>
       	<typeAlias alias="scopestmt" type="pms.a01_Jongdae.a04_VO.ScopeStatement"/>
       	<typeAlias alias="hcost" type="pms.a01_Jongdae.a04_VO.HCost"/>
       	<typeAlias alias="prjhcostlist" type="pms.a01_Jongdae.a04_VO.PrjHCostList"/>
       	<typeAlias alias="pminfo" type="pms.a01_Jongdae.a04_VO.PMInfo"/>
       	<typeAlias alias="hcostsum" type="pms.a01_Jongdae.a04_VO.HCostSum"/>
+      	<typeAlias alias="risk" type="pms.a01_Jongdae.a04_VO.Risk"/>
       	
 		<typeAlias alias="rmplan" type="pms.a01_Heonyong.a04_VO.riskManagementPlan"/>
 		
@@ -34,6 +37,8 @@
 	    <typeAlias alias="prjrate" type="pms.a01_Yeji.a04_VO.PrjRate"/>
 	    <typeAlias alias="prjscore" type="pms.a01_Yeji.a04_VO.PrjScore"/>
 	    <typeAlias alias="important" type="pms.a01_Yeji.a04_VO.Important"/>
+	    <typeAlias alias="jobcnt" type="pms.a01_Yeji.a04_VO.JobCnt"/>
+	    
 	</typeAliases>
 	<!-- 사용할 sql 파일 처리
 		업무별 기능 분류로 sql 파일을 분리시켜서 처리
@@ -43,6 +48,8 @@
 	<mappers>   
       <mapper resource="resource/mapper/a01_HaeunMapper.xml"/>
       <mapper resource="resource/mapper/a01_HaeunMapper02.xml"/>
+      <mapper resource="resource/mapper/a01_HaeunMapper03.xml"/> 
+
       <mapper resource="resource/mapper/a01_HeonyongMapper.xml"/>
        
       <mapper resource="resource/mapper/a01_JanghoMapper.xml"/>
