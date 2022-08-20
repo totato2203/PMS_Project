@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import pms.a01_Yeji.a02_Service.DashboardService;
 
 
@@ -122,6 +123,24 @@ public class DashboardController {
 	@RequestMapping("getHRSal.do")
 	public String getHRSal(@RequestParam("prjno") String prjno ,Model d){                 
 		d.addAttribute("hrsal",service.getHRSal(prjno));
+		return "pageJsonReport";
+	}
+	// 팀 멤버 리스트
+	@RequestMapping("getTeamMember.do")
+	public String getTeamMember(@RequestParam("prjno") String prjno ,Model d){                 
+		d.addAttribute("teammember",service.getTeamMember(prjno));
+		return "pageJsonReport";
+	}
+	// 시정조치 단계
+	@RequestMapping("getRplanStep.do")
+	public String getRplanStep(@RequestParam("prjno") String prjno ,Model d){                 
+		d.addAttribute("rplanstep",service.getRplanStep(prjno));
+		return "pageJsonReport";
+	}
+	// 전체 프로젝트 위험정도 수
+	@RequestMapping("getRiskDeg.do")
+	public String getRiskDeg(Model d){                 
+		d.addAttribute("riskdeg",service.getRiskDeg());
 		return "pageJsonReport";
 	}
 	/*

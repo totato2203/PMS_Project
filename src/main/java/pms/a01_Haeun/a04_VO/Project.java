@@ -9,7 +9,9 @@ public class Project {
 	private String output;
 	private String outRange;
 	private Date prjStartDate; 
+	private String prjStartDateS; 
 	private Date prjEndDate;
+	private String prjEndDateS;
 	private double prjFinance;
 	private String prjPMNo;
 	private String prjImportant;
@@ -54,6 +56,32 @@ public class Project {
 		this.costScore = costScore;
 		this.commuScore = commuScore;
 	}
+	
+	public Project(String prjNo, String prjName, String prjGoal, String output, String outRange, String prjStartDateS,
+			String prjEndDateS, double prjFinance, String prjPMNo, String prjImportant, int eqpmnCost, int materialCost,
+			int serviceCost, int indirectCost, int rsrvExpns, int prjRate, int schdlScore, int hrScore, int costScore,
+			int commuScore) {
+		this.prjNo = prjNo;
+		this.prjName = prjName;
+		this.prjGoal = prjGoal;
+		this.output = output;
+		this.outRange = outRange;
+		this.prjStartDateS = prjStartDateS;
+		this.prjEndDateS = prjEndDateS;
+		this.prjFinance = prjFinance;
+		this.prjPMNo = prjPMNo;
+		this.prjImportant = prjImportant;
+		this.eqpmnCost = eqpmnCost;
+		this.materialCost = materialCost;
+		this.serviceCost = serviceCost;
+		this.indirectCost = indirectCost;
+		this.rsrvExpns = rsrvExpns;
+		this.prjRate = prjRate;
+		this.schdlScore = schdlScore;
+		this.hrScore = hrScore;
+		this.costScore = costScore;
+		this.commuScore = commuScore;
+	}
 
 	// 검색을 위한 생성자
 	public Project(String prjNo, String prjName, String prjPMNo) {
@@ -61,7 +89,7 @@ public class Project {
 		this.prjName = prjName;
 		this.prjPMNo = prjPMNo;
 	}
-
+	
 	// 프로젝트 등록을 위한 생성자
 	/*
 	public Project(String prjNo, String prjName, String prjGoal, String output, String outRange, String prjImportant) {
@@ -210,5 +238,21 @@ public class Project {
 		this.commuScore = commuScore;
 	}
 
+	public String getPrjStartDateS() {
+		return prjStartDateS;
+	}
+
+	public void setPrjStartDateS(String prjStartDateS) {
+		this.prjStartDateS = prjStartDateS;
+	}
+
+	public String getPrjEndDateS() {
+		return prjEndDateS;
+	}
+
+	public void setPrjEndDateS(String prjEndDateS) {
+		this.prjEndDateS = prjEndDateS;
+	}
+	
 }
 

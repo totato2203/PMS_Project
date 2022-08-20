@@ -25,8 +25,15 @@ public class CalendarService {
 		dao.updateCalendar(upt);
 	}
 	// 캘린더 일정 삭제
-	public void deleteCalendar(int id) {
-		dao.deleteCalendar(id);
+	public void deleteCalendar(Calendar del) {
+		dao.deleteCalendar(del);
 	}
+	// 로드맵 기간
+	public int getRmPeriod(Calendar period) {
+		period.setRmPeriod(dao.rmpPeriod(period));
+		System.out.println(period.getRmPeriod());
+		return period.getRmPeriod();
+	}
+
 	
 }

@@ -25,15 +25,36 @@ public class EmpService {
 	public Emp getEmp01(String empno) {
 		return dao.getEmp01(empno);
 	}
+
+	@Value("${fileupload}")
+	private String path;
 	
-	// 회원가입
+	// PM 회원가입
 	public void insertEmp(Emp ins) {
-		dao.insertEmp(ins); 
+		MultipartFile mpf = ins.getReport();
+		String fname = mpf.getOriginalFilename();
+		
+		File f = new File(path+fname);
+		
+		try {
+			mpf.transferTo(f);
+			System.out.println("파일업로드 완성");
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		dao.insertEmp(ins);
+		if(!fname.equals("")) {
+			dao.insertEmpFile01(new EmpFile(path,fname));
+			dao.updateEimage02(new Emp(ins.getId(), ins.getPw(), ins.getEname(), fname));
+		}
 	}
 	
 	// 프로필 수정
-	@Value("${fileupload}")
-	private String path;
 	public void updateEmp(Emp upt) {
 		MultipartFile mpf = upt.getReport();
 		String fname = mpf.getOriginalFilename();
@@ -53,7 +74,7 @@ public class EmpService {
 		dao.updateEmp(upt);
 		if(!fname.equals("")) {
 			dao.insertEmpFile(new EmpFile(upt.getEmpno(), path, fname));
-			dao.updateEmpFile(new Emp(upt.getEmpno(), upt.getId(), fname));
+			dao.updateEimage(new Emp(upt.getEmpno(), upt.getId(), fname));
 		}
 	}
 

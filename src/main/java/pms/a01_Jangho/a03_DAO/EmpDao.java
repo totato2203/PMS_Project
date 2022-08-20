@@ -12,16 +12,18 @@ public interface EmpDao {
 	public Emp getEmp(Emp e);	// id, pw
 	public Emp getEmp01(String empno);	// empno
 	
-	// 회원가입
+	// PM 회원가입
 	public void insertEmp(Emp ins);
 	
 	// 프로필 수정
 	public void updateEmp(Emp upt);
 	
 	// 프로필 이미지
+	public void insertEmpFile01(EmpFile file);
 	public void insertEmpFile(EmpFile file);
 	
 	// empno의 프로필 이미지 파일명 DB에 저장
-	public void updateEmpFile(Emp uptfile);
+	public void updateEimage02(Emp upt);
+	public void updateEimage(Emp upt);
 
 }

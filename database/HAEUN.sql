@@ -1,3 +1,17 @@
+INSERT INTO calendar values(cal_seq.nextval,'테스트일정','2022-01-10','2022-07-10','content',
+	'navy','pink','white',
+	1,100,50,'완료','P1000');
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE AEAPEMP(
 	empno varchar2(20) PRIMARY KEY,
 	id varchar2(20) UNIQUE,

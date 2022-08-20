@@ -26,7 +26,7 @@ public class rplanService {
 	}
 
 	
-	public List<project> prjList(project sch){
+	public List<project> prjList(String sch){
 		return dao.prjList(sch);
 	}
 	
@@ -45,6 +45,10 @@ public class rplanService {
 		dao.deleteRplan(rplanno);
 	}
 	
+	public void deleteFbplan(String feedbackNo) {
+		dao.deleteFbplan(feedbackNo);
+	}
+	
 	public Reviewplan getRplanDetail(String rplanno) {
 		return dao.getRplanDetail(rplanno);
 	}
@@ -54,11 +58,25 @@ public class rplanService {
 		return dao.getFbplanDetail(feedbackno);
 	}
 	
+	public project getQpointDetail(String prjNo) {
+		return dao.getQpointDetail(prjNo);
+	}
+	
 	
 	
 	  public Reviewplan updateRplan(Reviewplan upt) {
 		  dao.updateRplan(upt);
 		  return dao.getRplanDetail(upt.getRplanNo());
+	  }
+	  
+	  public feedback updateFbplan(feedback upt) {
+		  dao.updateFbplan(upt);
+		  return dao.getFbplanDetail(upt.getFeedbackNo());
+	  }
+	  
+	  public project updateQpoint(project upt) {
+		 dao.updateQpoint(upt);
+		 return dao.getQpointDetail(upt.getPrjNo()); 
 	  }
 	  
 	  public Reviewplan updateRplanStatus(Reviewplan upt) { 

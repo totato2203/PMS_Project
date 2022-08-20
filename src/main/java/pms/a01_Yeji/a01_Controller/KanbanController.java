@@ -16,13 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
-
 @Controller
-public class ChatController {
-	// http://localhost:7080/pms/chat.do
-	@RequestMapping("chat.do")
-	public String chat() {
-		return "WEB-INF\\views\\a01_Yeji\\chat_room.jsp";
+public class KanbanController {
+	// http://localhost:7080/pms/kanban.do
+	@RequestMapping("kanban.do")
+	public String kanban() {
+		return "WEB-INF\\views\\a01_Yeji\\kanban.jsp";
 	}
-
 }

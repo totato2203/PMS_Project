@@ -4,7 +4,7 @@ public class MeetingBoardSch {
 	// 페이징 처리 및 검색을 위한 vo
 	// 1. 검색
 	private String recordTitle;
-	private String ename;
+	private String writer;
 	// 2. 페이징 처리를 위한 속성
 	private int recordCount; // 총데이터 건수
 	private int recordPageSize; // 한번에 보여줄 페이ㅣㅈ 크기
@@ -19,11 +19,11 @@ public class MeetingBoardSch {
 	public MeetingBoardSch() {
 		// TODO Auto-generated constructor stub
 	}
-	public MeetingBoardSch(String recordTitle, String ename, int recordCount, int recordPageSize, int recordPageCount,
+	public MeetingBoardSch(String recordTitle, String writer, int recordCount, int recordPageSize, int recordPageCount,
 			int recordCurPage, int recordStart, int recordEnd, int recordBlockSize, int recordStartBlock,
 			int recordEndBlock) {
 		this.recordTitle = recordTitle;
-		this.ename = ename;
+		this.writer = writer;
 		this.recordCount = recordCount;
 		this.recordPageSize = recordPageSize;
 		this.recordPageCount = recordPageCount;
@@ -40,11 +40,11 @@ public class MeetingBoardSch {
 	public void setRecordTitle(String recordTitle) {
 		this.recordTitle = recordTitle;
 	}
-	public String getEname() {
-		return ename;
+	public String getWriter() {
+		return writer;
 	}
-	public void setEname(String ename) {
-		this.ename = ename;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public int getRecordCount() {
 		return recordCount;

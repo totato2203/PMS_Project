@@ -43,7 +43,7 @@ public class Calendar {
 
 	// 로드맵
 	public Calendar(int id, String title, String start, String end, String content, String borderColor,
-			String backgroundColor, String textColor, boolean allDay, double rmCost, int rmPeriod, String isCompletion,
+			String backgroundColor, String textColor, boolean allDay, double rmCost, int rmPeriod, String isCompletion, String prjName,
 			String prjNo) {
 		this.id = id;
 		this.title = title;
@@ -57,6 +57,7 @@ public class Calendar {
 		this.rmCost = rmCost;
 		this.rmPeriod = rmPeriod;
 		this.isCompletion = isCompletion;
+		this.prjName = prjName;
 		this.prjNo = prjNo;
 	}
 

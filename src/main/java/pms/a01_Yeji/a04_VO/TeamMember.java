@@ -1,21 +1,15 @@
 package pms.a01_Yeji.a04_VO;
 
-public class PrjEmpList {
+public class TeamMember {
 	private String prjno;
+	private String ename;
 	private String empno;
-	private int cnt; // count(*) 별칭
-	public PrjEmpList() {
+	public TeamMember() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public PrjEmpList(String prjno, String empno, int cnt) {
+	public TeamMember(String prjno, String ename, String empno) {
 		this.prjno = prjno;
-		this.empno = empno;
-		this.cnt = cnt;
-	}
-
-	public PrjEmpList(String prjno, String empno) {
-		this.prjno = prjno;
+		this.ename = ename;
 		this.empno = empno;
 	}
 	public String getPrjno() {
@@ -24,19 +18,18 @@ public class PrjEmpList {
 	public void setPrjno(String prjno) {
 		this.prjno = prjno;
 	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
 	public String getEmpno() {
 		return empno;
 	}
 	public void setEmpno(String empno) {
 		this.empno = empno;
 	}
-
-	public int getCnt() {
-		return cnt;
-	}
-
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
+	
 	
 }

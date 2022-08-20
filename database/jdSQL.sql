@@ -469,6 +469,27 @@ INSERT INTO calendar values(cal_seq.nextval,'테스트일정','2022-01-10','2022
    'navy','pink','white',
    1,100,50,'완료','P1000');
 
+-- 프로젝트랑 인적자원 보기
+SELECT p.PRJNAME, p.PRJSTARTDATE, p.PRJENDDATE, e.JOB, e.ename, p.prjno
+FROM PROJECT p, PRJEMPLIST p2, EMP e
+WHERE p.PRJNO = p2.PRJNO
+AND p2.EMPNO = e.EMPNO
+AND p.prjno = 'P1000';
 
+SELECT * FROM project;
 
+SELECT * FROM PRJEMPLIST p ;
 
+SELECT empno, ename, job
+FROM emp e
+where NOT EXISTS (
+	SELECT 1
+	FROM PRJEMPLIST p
+	WHERE p.empno = e.empno
+	AND p.prjno = 'P1000'
+);
+
+DELETE
+FROM PRJEMPLIST
+WHERE PRJNO = 'P1004';
+INSERT INTO PRJEMPLIST values('E1003' , 'P1004');

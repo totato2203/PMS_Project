@@ -1,7 +1,5 @@
 package pms.a01_Haeun.a01_Controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pms.a01_Haeun.a02_Service.HRService;
 import pms.a01_Haeun.a04_VO.Emp;
+import pms.a01_Haeun.a04_VO.EmpSch;
 import pms.a01_Haeun.a04_VO.HRMail;
 
 @Controller
@@ -20,26 +19,27 @@ public class HRController {
 	private HRService service;
 			
 	// 사원 검색
-	// http://106.10.18.69:5050/pms/empList.do
+	// http://106.10.18.69:3030/pms/empList.do
 	// http://localhost:7080/pms/empList.do
 	@RequestMapping("empList.do")
-	public String empList(Emp sch, Model d) {
+	public String empList(EmpSch sch, Model d) {
+		// default ModelAttribute = empSch
 		d.addAttribute("empList", service.getEmpList(sch));
 		return "WEB-INF\\views\\a01_Haeun\\a01_empList.jsp";
 	}	
 	// 사원 상세정보
 	@RequestMapping("empDetail.do")
 	public String empDetail(@RequestParam("empno") String empno, Model d) {
-		d.addAttribute("emp", service.getEmpDetail(empno));
+		d.addAttribute("empDetail", service.getEmpDetail(empno));
 		return "WEB-INF\\views\\a01_Haeun\\a02_empDetail.jsp";
 	}
 	// 사원 정보 수정
 	@RequestMapping("updateEmp.do")
 	public String updateEmp(Emp upt, Model d) {
 		System.out.println("수정:"+upt.getSal());
-		d.addAttribute("emp", service.updateEmp(upt));
+		service.updateEmp(upt);
 		d.addAttribute("proc", "upt");
-		return "WEB-INF\\views\\a01_Haeun\\a02_empDetail.jsp";
+		return "redirect:/empDetail.do?empno=" + upt.getEmpno();
 	}
 	// 사원 정보 삭제
 	@RequestMapping("deleteEmp.do")
@@ -47,7 +47,7 @@ public class HRController {
 		System.out.println("삭제:"+empno);
 		service.deleteEmp(empno);
 		d.addAttribute("proc","del");
-		return "WEB-INF\\views\\a01_Haeun\\a02_empDetail.jsp";
+		return "redirect:/empList.do";
 	}
 	// 사원 정보 등록
 	// http://localhost:7080/pms/empInsertForm.do
@@ -71,17 +71,15 @@ public class HRController {
 	// 메일 발송 
 	// http://localhost:7080/pms/mailFormHR.do
 	@GetMapping("mailFormHR.do")
-	public String mailFormHR() {
-		
+	public String mailFormHR() {		
 		System.out.println("메일발송시도");
 		return "WEB-INF\\views\\a01_Haeun\\a04_mail.jsp";
-	}
-	
+	}	
 	@PostMapping("mailSenderHR.do")
 	public String mailSenderHR(HRMail mail, Model d) {
-		System.out.println("메일발송");
+		System.out.println("메일발송1");
 		d.addAttribute("msg",service.sendMail(mail));
-		System.out.println("메일발송########################");
+		System.out.println("메일발송2");
 		return "WEB-INF\\views\\a01_Haeun\\a04_mail.jsp";
 	}
 }

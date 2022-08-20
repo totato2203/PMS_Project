@@ -1,6 +1,7 @@
 package pms.a01_Yeji.a04_VO;
 
 public class PrjScore {
+	private String prjno;
 	private int tot; // 종합 품질점수
 	private int schdlScore;
 	private int hrScore;
@@ -9,7 +10,8 @@ public class PrjScore {
 	public PrjScore() {
 		// TODO Auto-generated constructor stub
 	}
-	public PrjScore(int tot, int schdlScore, int hrScore, int costScore, int commuScore) {
+	public PrjScore(String prjno, int tot, int schdlScore, int hrScore, int costScore, int commuScore) {
+		this.prjno = prjno;
 		this.tot = tot;
 		this.schdlScore = schdlScore;
 		this.hrScore = hrScore;
@@ -22,6 +24,8 @@ public class PrjScore {
 	public void setTot(int tot) {
 		this.tot = tot;
 	}
+	
+
 	public int getSchdlScore() {
 		return schdlScore;
 	}
@@ -45,6 +49,14 @@ public class PrjScore {
 	}
 	public void setCommuScore(int commuScore) {
 		this.commuScore = commuScore;
+	}
+
+	public String getPrjno() {
+		return prjno;
+	}
+
+	public void setPrjno(String prjno) {
+		this.prjno = prjno;
 	}
 	
 	

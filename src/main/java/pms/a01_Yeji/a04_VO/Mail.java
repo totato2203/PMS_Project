@@ -5,8 +5,8 @@ package pms.a01_Yeji.a04_VO;
 public class Mail {
 	private String receiver; //수신자
 	private String sender; // 발신자
-	private String mailtitle; //제목
-	private String mailcontent; //내용
+	private String mailTitle; //제목
+	private String mailContent; //내용
 	
 
 	public Mail() {
@@ -14,11 +14,11 @@ public class Mail {
 	}
 	
 	
-	public Mail(String receiver, String sender, String mailtitle, String mailcontent) {
+	public Mail(String receiver, String sender, String mailTitle, String mailContent) {
 		this.receiver = receiver;
 		this.sender = sender;
-		this.mailtitle = mailtitle;
-		this.mailcontent = mailcontent;
+		this.mailTitle = mailTitle;
+		this.mailContent = mailContent;
 	}
 
 
@@ -35,16 +35,16 @@ public class Mail {
 		this.sender = sender;
 	}
 	public String getMailTitle() {
-		return mailtitle;
+		return mailTitle;
 	}
-	public void setMailTitle(String mailtitle) {
-		this.mailtitle = mailtitle;
+	public void setMailTitle(String mailTitle) {
+		this.mailTitle = mailTitle;
 	}
-	public String getMailcontent() {
-		return mailcontent;
+	public String getMailContent() {
+		return mailContent;
 	}
-	public void setMailcontent(String mailcontent) {
-		this.mailcontent = mailcontent;
+	public void setMailContent(String mailContent) {
+		this.mailContent = mailContent;
 	}
 	
 }

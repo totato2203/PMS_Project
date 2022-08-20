@@ -26,21 +26,18 @@
 			<if test="recordTitle!=null">
 			AND recordTitle LIKE '%'||#{recordTitle, jdbcType=VARCHAR}||'%'
 			</if>
-			<if test="ename!=null">
+			<if test="writer!=null">
 			AND writer LIKE '%'||#{writer, jdbcType=VARCHAR}||'%'
 			</if>
 			START WITH refno = 0
 			CONNECT BY PRIOR recordNum = refno
 			order siblings by recordNum desc
 			)
-			
-		
    </select>
    
    
-   
    <insert id="insertBoard" parameterType="meetingboard">
-   		insert into meetingboard (recordNum,refno,recordTitle,recordContent,writer,recordViewCnt,recordRegdte,recordUptdte) values(meetingboard_seq.nextval,#{refno} ,#{recordTitle,jdbcType=VARCHAR}, #{recordContent,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 0, sysdate, sysdate)
+   		insert into meetingboard (recordNum,refno,recordTitle,recordContent,writer,recordViewCnt,recordRegdte,recordUptdte) values(meetingboard_seq.nextval,#{refno} ,#{recordTitle,jdbcType=VARCHAR}, #{recordContent,jdbcType=VARCHAR}, #{writer,jdbcType=VARCHAR}, 0, sysdate, sysdate)
    </insert>
    
    	<insert id="insertFile" parameterType="meetingboardfile">
@@ -49,7 +46,7 @@
 	</insert>
    
    <select id="getBoardDetail" parameterType="int" resultType="meetingboard" >
-   		SELECT mb.*, mf.mrfilename
+   		SELECT mb.*, mf.mrFileName
 		FROM meetingboard mb, meetingboardfile mf
 		WHERE mb.recordNum = mf.recordNum(+)
 		and mb.recordNum = #{recordNum}

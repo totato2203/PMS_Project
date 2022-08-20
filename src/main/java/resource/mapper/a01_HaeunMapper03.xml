@@ -17,11 +17,19 @@
 		where prjNo = #{prjNo}
 	</select> 
 	
+	<!-- 로드맵 기간 -->
+	<!-- public int rmpPeriod(Calendar period); -->
+	<select id="rmpPeriod" resultMap="calResult" parameterType="calendar" resultType="int">
+		SELECT to_date(END,'yyyy-mm-dd')-to_date(START,'yyyy-mm-dd')
+		FROM CALENDAR
+		WHERE id = #{id}
+	</select>
+	
 	<insert id="insertCalendar" parameterType="calendar" >
-		insert into calendar (id,title,start,end,content,borderColor,
+		insert into calendar (id,title,start1,end1,content,borderColor,
 		backgroundColor,textColor,allDay,prjNo) values(cal_seq.nextval,#{title},#{start},
 			#{end},#{content},null,#{backgroundColor},#{textColor},
-			#{allDay},'P'||prjNo_seq.nextval)				
+			#{allDay},#{prjNo})				
 	</insert>	
 		
 	<update id="updateCalendar" parameterType="calendar">

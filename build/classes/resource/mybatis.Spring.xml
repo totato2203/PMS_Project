@@ -8,6 +8,8 @@
 		<typeAlias alias="empfile" type="pms.a01_Haeun.a04_VO.EmpFile"/>
 	    <typeAlias alias="project" type="pms.a01_Haeun.a04_VO.Project"/>
 	    <typeAlias alias="calendar" type="pms.a01_Haeun.a04_VO.Calendar"/>
+	    <typeAlias alias="empsch" type="pms.a01_Haeun.a04_VO.EmpSch"/>
+	    <typeAlias alias="prjemp" type="pms.a01_Haeun.a04_VO.PrjEmp"/>
 
 		<typeAlias alias="rplan" type="pms.a01_Sechan.a04_VO.Reviewplan"/>
 		<typeAlias alias="fbplan" type="pms.a01_Sechan.a04_VO.feedback"/>
@@ -36,8 +38,10 @@
 	    <typeAlias alias="prjfinance" type="pms.a01_Yeji.a04_VO.PrjFinance"/>
 	    <typeAlias alias="prjrate" type="pms.a01_Yeji.a04_VO.PrjRate"/>
 	    <typeAlias alias="prjscore" type="pms.a01_Yeji.a04_VO.PrjScore"/>
-	    <typeAlias alias="important" type="pms.a01_Yeji.a04_VO.Important"/>
 	    <typeAlias alias="jobcnt" type="pms.a01_Yeji.a04_VO.JobCnt"/>
+	    <typeAlias alias="teammember" type="pms.a01_Yeji.a04_VO.TeamMember"/>
+	    <typeAlias alias="rplanstep" type="pms.a01_Yeji.a04_VO.RplanStep"/>
+	    <typeAlias alias="riskdeg" type="pms.a01_Yeji.a04_VO.RiskDeg"/>
 	    
 	</typeAliases>
 	<!-- 사용할 sql 파일 처리

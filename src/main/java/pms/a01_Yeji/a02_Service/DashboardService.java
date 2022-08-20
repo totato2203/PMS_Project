@@ -12,6 +12,9 @@ import pms.a01_Yeji.a04_VO.PrjEmpList;
 import pms.a01_Yeji.a04_VO.PrjFinance;
 import pms.a01_Yeji.a04_VO.PrjRate;
 import pms.a01_Yeji.a04_VO.PrjScore;
+import pms.a01_Yeji.a04_VO.RiskDeg;
+import pms.a01_Yeji.a04_VO.RplanStep;
+import pms.a01_Yeji.a04_VO.TeamMember;
 
 
 @Service
@@ -68,6 +71,18 @@ public class DashboardService {
 	// 비용관리 사원별 인건비
 	public List<HRSal> getHRSal(String prjno){
 		return dao.getHRSal(prjno);
+	}
+	// 팀 멤버 리스트
+	public List<TeamMember> getTeamMember(String prjno){
+		return dao.getTeamMember(prjno);
+	}
+	// 시정조치 단계
+	public List<RplanStep> getRplanStep(String prjno){
+		return dao.getRplanStep(prjno);
+	}
+	// 전체 프로젝트 위험정도 수
+	public List<RiskDeg> getRiskDeg(){
+		return dao.getRiskDeg();
 	}
 	
 }

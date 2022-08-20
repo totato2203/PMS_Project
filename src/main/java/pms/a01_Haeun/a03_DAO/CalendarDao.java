@@ -16,6 +16,10 @@ public interface CalendarDao {
 	// 수정
 	public void updateCalendar(Calendar upt);
 	// 삭제
-	public void deleteCalendar(int id);
+	public void deleteCalendar(Calendar del);
 	
+	// 로드맵 기간
+
+	public int rmpPeriod(Calendar period);
+
 }

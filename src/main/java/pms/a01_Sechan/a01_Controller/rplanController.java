@@ -33,7 +33,7 @@ public class rplanController {
 
 //	http://localhost:7080/pms/prjlist.do
 	@RequestMapping("prjlist.do")
-	public String prjlist(project sch, Model d) {
+	public String prjlist(String sch, Model d) {
 		d.addAttribute("prjlist", service.prjList(sch));
 		return "WEB-INF\\views\\a01_Sechan\\qualityProjectList.jsp";
 	}
@@ -79,6 +79,15 @@ public class rplanController {
 		d.addAttribute("fbplandetail", service.getFbplanDetail(feedbackno));
 		return "WEB-INF\\views\\a01_Sechan\\FeedbackDetail.jsp";
 	}
+	
+	
+		@RequestMapping("QpointDetail.do")
+		public String QpointDetail(@RequestParam("prjNo") String prjNo, Model d) {
+			System.out.println("업데이트:" + prjNo);
+			d.addAttribute("QpointDetail",service.getQpointDetail(prjNo));
+			return "WEB-INF\\views\\a01_Sechan\\QpointDetail.jsp";
+		}
+	
 
 	@RequestMapping("deleteRplan.do")
 	public String deleteRplan(@RequestParam("rplanno") String rplanno, Model d) {
@@ -86,6 +95,13 @@ public class rplanController {
 		service.deleteRplan(rplanno);
 		d.addAttribute("proc", "del");
 		return "WEB-INF\\views\\a01_Sechan\\ReviewPlanDetail.jsp";
+	}
+	@RequestMapping("deleteFbplan.do")
+	public String deleteFbplan(@RequestParam(value="feedbackNo", required=false) String feedbackNo, Model d) {
+		System.out.println("삭제:"+feedbackNo);
+		service.deleteFbplan(feedbackNo);
+		d.addAttribute("proc","del");
+		return "WEB-INF\\views\\a01_Sechan\\FeedbackDetail.jsp";
 	}
 	
 	  @RequestMapping("updateRplan.do")
@@ -96,6 +112,22 @@ public class rplanController {
 		  d.addAttribute("proc","upt"); return
 		  "WEB-INF\\views\\a01_Sechan\\ReviewPlanDetail.jsp";
 	   }
+	  @RequestMapping("updateFbplan.do")
+	  public String updateFbplan(feedback upt, Model d) {
+		  System.out.println("수정###:"+upt.getFeedbackNo());
+		  d.addAttribute("uptFbplan", service.updateFbplan(upt));
+		  d.addAttribute("proc","upt");
+		  return "WEB-INF\\views\\a01_Sechan\\FeedbackDetail.jsp";
+		  
+	  }
+	  @RequestMapping("updateQpoint.do")
+	  public String updateQpoint(project upt, Model d) {
+		  System.out.println("수정###:"+upt.getPrjNo());
+		  d.addAttribute("uptQpoint",service.updateQpoint(upt));
+		  d.addAttribute("proc","pupt");
+		  return "WEB-INF\\views\\a01_Sechan\\QpointDetail.jsp";
+		  
+	  }
 	  
 	  @RequestMapping("updateRplanStatus.do")
 	  public String updateRplanStatus(Reviewplan upt, Model d) {

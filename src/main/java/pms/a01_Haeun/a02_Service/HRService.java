@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import pms.a01_Haeun.a03_DAO.HRDao;
 import pms.a01_Haeun.a04_VO.Emp;
 import pms.a01_Haeun.a04_VO.EmpFile;
+import pms.a01_Haeun.a04_VO.EmpSch;
 import pms.a01_Haeun.a04_VO.HRMail;
 
 @Service
@@ -25,14 +26,54 @@ public class HRService {
 	@Autowired(required=false)
 	private HRDao daoHR;
 	
-	// 직원 검색
-	public List<Emp> getEmpList(Emp sch){
+	// 사원 검색 + 8/20 페이징 처리 추가
+	public List<Emp> getEmpList(EmpSch sch){
+		// 1. 전체 데이터 건수 설정
+		sch.setCount(daoHR.totCnt(sch));
+		System.out.println("총건수:"+sch.getCount());
+		// 2. 화면에 한번에 보여줄 데이터 건수 (요청값으로 처리, VIEW단에서 SELECT로 넘겨 받아서 처리)
+		// 초기 화면을 대비하여 한번에 보여줄 데이터 건수를 선언
+		if(sch.getPageSize()==0) { // 초기 화면에서 select 안됐을 때
+			sch.setPageSize(5); // default 값
+		}
+		// 3. 총페이지수 : 데이터건수/한번에 보여줄 페이지 크기
+		sch.setPageCount((int)Math.ceil(sch.getCount()/(double)sch.getPageSize()));
+		// 4. 클릭한 현재 페이지 번호 (view에서 요청값 받아서 처리)
+		// 초기 화면은 0으로 처리되기에 default값을 1로 처리한다.
+		if(sch.getCurPage()==0) { // 숫자형은 0 이 null 역할
+			sch.setCurPage(1);
+		}
+		// 블럭 단위로 next 클릭 시 curpage 증가 되는 거 방지
+		if(sch.getCurPage()>sch.getPageCount()){
+			sch.setCurPage(sch.getPageCount());
+		}
+		// 5. 마지막번호(현재 페이지 * 한번에 보여줄 페이지 건수)
+		int end = sch.getCurPage()*sch.getPageSize();
+		if(end>sch.getCount()) { // 총 데이터 건수보다 크면
+			sch.setEnd(sch.getCount());
+		} else {
+			sch.setEnd(end);
+		}
+		//sch.setEnd(sch.getCurPage()*sch.getPageSize());
+		sch.setStart((sch.getCurPage()-1)*(sch.getPageSize()+1));
+		// 하단 <previous next> 블럭 처리
+		// 1. 블럭 크기 지정
+		sch.setBlockSize(5);
+		// 2. 블럭의 번호 지정
+		int blocknum = (int)(Math.ceil(sch.getCurPage()/(double)sch.getBlockSize()));
+		int endBlock = blocknum*sch.getBlockSize();
+		if(endBlock>=sch.getPageCount()) {
+			endBlock=sch.getPageCount();
+		}
+		sch.setEndBlock(endBlock);
+		sch.setStartBlock((blocknum-1)*sch.getBlockSize()+1);
+		
 		return daoHR.getEmpList(sch);
 	}		
 	// 파일서버 정보
 	@Value("${fileupload}")
 	private String path;
-	// 직원 등록
+	// 사원 등록
 	public void insertEmp(Emp ins) {
 		MultipartFile mpf = ins.getReport();
 		String fname = mpf.getOriginalFilename();
@@ -49,20 +90,43 @@ public class HRService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		daoHR.insertEmp(ins);
-		daoHR.insertFile(new EmpFile(path,fname));
+		if(!fname.equals("")) {
+			daoHR.insertFile(new EmpFile(path,fname));
+			daoHR.updateEimage01(new Emp(ins.getId(), ins.getPw(), ins.getEname(), fname));
+		}
 	}
 	
-	// 직원 상세 정보
+	// 사원 상세 정보
 	public Emp getEmpDetail(String empno) {
 		return daoHR.getDetail(empno);
 	}	
-	// 직원 정보 수정
-	public Emp updateEmp(Emp upt) {
+	// 사원 정보 수정
+	public void updateEmp(Emp upt) {
+		MultipartFile mpf = upt.getReport();
+		String fname = mpf.getOriginalFilename();
+		
+		File f = new File(path+fname);
+		
+		try {
+			mpf.transferTo(f);
+			System.out.println("파일업로드 완성");
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		daoHR.updateEmp(upt);
-		return daoHR.getDetail(upt.getEmpno());
+		if(!fname.equals("")) {
+			daoHR.insertFile01(new EmpFile(upt.getEmpno(), path, fname));
+			daoHR.updateEimage01(new Emp(upt.getId(), upt.getPw(), upt.getEname(), fname));
+		}
 	}
-	// 직원 정보 삭제
+	// 사원 정보 삭제
 	public void deleteEmp(String empno) {
 		daoHR.deleteEmp(empno);
 	}
