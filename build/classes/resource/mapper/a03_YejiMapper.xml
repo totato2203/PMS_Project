@@ -78,12 +78,36 @@
 	
 	<!-- 비용관리 사원별 인건비(각 프로젝트 대시보드) -->
 	<select id="getHRSal" resultType="HRSal"  parameterType="string">
-		SELECT ename, e.sal 
-		FROM emp e, PRJEMPLIST p, scopstmt s
+		SELECT e.ename, e.sal 
+		FROM emp e, PRJEMPLIST p
 		WHERE e.empno = p.empno
 		AND p.prjno = #{prjno}
-		AND p.prjno = s.prjno
-		and s.isapproval = '승인' 
 	</select>
+	
+	<!-- 팀멤버 리스트 -->
+	<select id="getTeamMember" resultType="TeamMember"  parameterType="string">
+		SELECT e.ename, e.empno
+		FROM emp e , prjemplist p
+		WHERE e.empno = p.empno  
+		AND prjno = #{prjno}
+	</select>
+	
+	<!-- 프로젝트별 시정조치 단계 -->
+	<select id="getRplanStep" resultType="RplanStep"  parameterType="string">
+		SELECT rplanStep, count(*) rplanCnt
+		FROM reviewPlan
+		WHERE prjno = #{prjno}
+		GROUP BY rplanStep
+	</select>
+	
+	<!-- 프로젝트 리스크 상중하 수-->
+	<select id="getRiskDeg" resultType="RiskDeg"  parameterType="string">
+		SELECT riskdeg, count(riskdeg) riskCnt
+		FROM REVIEWPLAN r , RISK r2, PROJECT p 
+		WHERE r.prjno = p.prjno 
+		AND r.rplanno = r2.rplanno 
+		GROUP BY riskdeg
+	</select>
+
 </mapper>
 
