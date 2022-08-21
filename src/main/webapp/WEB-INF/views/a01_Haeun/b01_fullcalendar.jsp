@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </button>
       </div>
       <div class="modal-body">
-		<form id="frm01" class="form"  method="post">
+		<form id="frm01" class="form">
 			<input type="hidden" name="id" value="0"/>
 	     <div class="row">
 	      <div class="col">
@@ -213,11 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	        	 data-bs-toggle="tooltip"  placeholder="내용 입력"  title="내용" ></textarea>
 	      </div>
 	     </div>	 	     
-	         
+	     
+	   <input type="hidden" name="prjNo" value="${param.prjNo}">
 	    </form> 
       </div>
       <div class="modal-footer"> 
         <button type="button" id="regBtn" class="btn btn-primary">일정등록</button>
+        <button type="button" id="periodBtn" class="btn btn-primary">기간등록</button>
         <button type="button" id="uptBtn" class="btn btn-info">일정수정</button>
         <button type="button" id="delBtn" class="btn btn-danger">일정삭제</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

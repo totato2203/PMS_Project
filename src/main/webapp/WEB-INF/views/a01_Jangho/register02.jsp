@@ -71,14 +71,14 @@
       <section class="wrapper">
       	<br>
         <h3>　<i class="fa fa-angle-right"></i> 회원 가입 <i class="fa fa-angle-right"></i> 회원 정보 입력</h3>
-		<form class="form-horizontal style-form" action="${path}/registerInsert.do" method="post">
+		<form class="form-horizontal style-form" enctype="multipart/form-data" action="${path}/registerInsert.do" method="post">
 	        <!-- 회원 정보 -->
 	        <div class="row mt">
 	          <div class="col-lg-12">
 	            <div class="form-panel">
 	              <h4 class="mb">　<i class="fa fa-angle-right"></i> 회원 정보</h4>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　아이디</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　아이디*</label>
 	                  <div class="col-sm-5">
 	                  	<div class="form-inline">
 	                      <input type="text" class="form-control" name="id">
@@ -90,7 +90,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　비밀번호</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　비밀번호*</label>
 	                  <div class="col-sm-5">
 	                    <input type="password" class="form-control" name="pw">
 	                    <span class="help-block">* 비밀번호를 8자 이상, 16자 이하로 입력해주세요.</span>
@@ -98,7 +98,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　비밀번호 확인</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　비밀번호 확인*</label>
 	                  <div class="col-sm-5">
 	                    <input type="password" class="form-control" name="pw_confirm">
 	                    <span class="help-block">* 위 비밀번호와 같은 값을 입력해주세요.</span>
@@ -106,7 +106,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　이름</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　이름*</label>
 	                  <div class="col-sm-5">
 	                    <input type="text" class="form-control" name="ename">
 	                  </div>
@@ -119,14 +119,95 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　생년월일</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　생년월일*</label>
 	                  <div class="col-sm-5">
 	                  	<input type="date" name="birthS" class="form-control" 
 								value='<fmt:formatDate value="" pattern="YYYY-MM-DD"/>'/>
-	               		<span class="help-block">* 생년월일을 고르세요.</span>
+	               		<span class="help-block">* 생년월일을 선택하세요.</span>
 	                  </div>
-	
 	                </div>
+	                
+	                <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　직책*</label>
+                       <div class="col-sm-5">
+                          <select name="job">
+                          	<option value="" selected>=====선택=====</option>
+                          	<option value="사원">사원</option>
+                          	<option value="대리">대리</option>
+                          	<option value="과장">과장</option>
+                          	<option value="PM">PM</option>
+                          	<option value="임원">임원</option>
+                          </select>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　권한*</label>
+	                  <div class="col-sm-5">
+	                    <input type="text" class="form-control" name="auth" value="PM" readonly>
+	                  </div>
+	                </div>
+                          
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　부서*</label>
+                       <div class="col-sm-5">
+                          <select name="deptno">
+                          	<option value="" selected>=====선택=====</option>
+                          	<option value="10">IT 사업부</option>
+                          	<option value="20">백엔드 개발</option>
+                          	<option value="30">프론트엔드 개발</option>
+                          </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　관리자번호</label>
+                       <div class="col-sm-5">
+                        	<input type="text" placeholder="관리자번호를 입력하세요" name="mgr" id="country" class="form-control" value=""/>
+                        </div>
+                    </div>
+                          
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　입사일*</label>
+                       <div class="col-sm-5">
+                          <input type="date" name="hiredateS" placeholder="입사일" class="form-control"  
+								value='<fmt:formatDate value="" pattern="yyyy-MM-dd"/>'/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　연봉*</label>
+                       <div class="col-sm-5">
+                          <input type="text" placeholder="연봉을 입력하세요" name="sal" id="country" class="form-control" value=""/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　중요도*</label>
+                       <div class="col-sm-5">
+                          <select name="eImportant">
+                          	<option value="" selected>=====선택=====</option>
+                          	<option value="상">상</option>
+                          	<option value="중">중</option>
+                          	<option value="하">하</option>
+                          </select>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　프로필 사진</label>
+                       <div class="col-sm-5">
+                          <input type="file" id="eimage" name="report" class="file-pos">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label class="col-sm-2 col-sm-2 control-label">　　　소개글</label>
+                       <div class="col-sm-5">
+                          <input type="text" id="description" name="description" class="form-control">
+                       </div>
+                    </div>
+                    
 	            </div>
 	          </div>
 	        </div>
@@ -136,6 +217,12 @@
 	          <div class="col-lg-12">
 	            <div class="form-panel">
 	              <h4 class="mb">　<i class="fa fa-angle-right"></i> 연락처 정보</h4>
+	              	<div class="form-group">
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　주소</label>
+	                  <div class="col-sm-5">
+	                    <input type="text" class="form-control" name="address">
+	                  </div>
+	                </div>
 	                <div class="form-group">
 	                  <label class="col-sm-2 col-sm-2 control-label">　　　전화번호</label>
 	                  <div class="col-sm-5">
@@ -143,7 +230,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label class="col-sm-2 col-sm-2 control-label">　　　E-MAIL</label>
+	                  <label class="col-sm-2 col-sm-2 control-label">　　　이메일*</label>
 	                  <div class="col-sm-5">
 	                    <input type="text" class="form-control" name="email">
 	                  </div>
@@ -225,6 +312,11 @@
 		    		if(data.hasEmp){
 		    			alert("이미 존재하는 아이디 입니다!\n다른 아이디를 입력하세요.")
 		    			$("[name=id]").val("").focus();
+		    			$("#idMsg").text("　");
+		    		}else if($("[name=id]").val() == ""){
+		    			alert("아이디를 입력하세요.")
+		    			$("[name=id]").focus();
+		    			$("#idMsg").text("　");
 		    		}else{
 		    			alert("사용 가능한 아이디 입니다!")
 		    			$("[name=idConfirm]").val("idCheck");
@@ -252,7 +344,16 @@
 			if(pwVal.length>=8 && pwVal.length<=16){
 				$("#pwMsg").text("유효한 비밀번호 입니다.").css("color","green")
 			} else {
-				$("#pwMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")	  
+				$("#pwMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")
+			}
+			if(pw_confirmVal.length != 0 && pw_confirmVal != pwVal){
+				$("#pw_confirmMsg").text("비밀번호와 일치하지 않습니다.").css("color","red")
+			}
+			if(pw_confirmVal.length != 0 && pw_confirmVal == pwVal){
+				$("#pw_confirmMsg").text("비밀번호와 일치합니다.").css("color","green")
+				if(!(pw_confirmVal.length>=8 && pw_confirmVal.length<=16)){
+					$("#pw_confirmMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")
+				}
 			}
 		});
 		$("[name=pw_confirm]").keyup(function(){
@@ -280,6 +381,15 @@ function check(){
 	      var enameVal = $("[name=ename]").val();
 	      var genderVal = $("[name=gender]").val();
 	      var birthVal = $("[name=birthS]").val();
+	      var jobVal = $("[name=job]").val();
+		  var authVal = $("[name=auth]").val();
+		  var deptnoVal = $("[name=deptno]").val();
+		  var hiredateVal = $("[name=hiredateS]").val();
+		  var salVal = $("[name=sal]").val();
+		  var regExp = /^[0-9]*$/;
+		  var eImportantVal = $("[name=eImportant]").val();
+		  var emailVal = $("[name=email]").val();
+		  var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
 	      if(idVal == ""){
 	          alert("아이디를 입력하세요.");
@@ -306,7 +416,6 @@ function check(){
 		      $("[name=pw]").focus();
 		      return;
 		  }
-	      
 	      if(pw_confirmVal == ""){
 	          alert("비밀번호 확인을 입력하세요.");
 	          $("[name=pw_confirm]").focus();
@@ -329,10 +438,55 @@ function check(){
 	         return;
 	      }
 	      if(birthVal == ""){
-	         alert("생일을 입력하세요.");
+	         alert("생년월일을 선택하세요.");
 	         $("[name=birth]").focus();
 	         return;
 	      }
+		  if(jobVal == ""){
+		     alert("직책을 선택하세요");
+		     $("[name=job]").focus();
+		     return;
+		  }
+		  if(authVal == ""){
+		     alert("권한을 선택하세요");
+		     $("[name=auth]").focus();
+		     return;
+		  }
+		  if(deptnoVal == ""){
+		     alert("부서를 선택하세요");
+		     $("[name=deptno]").focus();
+		     return;
+		  }
+		  if(hiredateVal == ""){
+		     alert("입사일을 선택하세요");
+		     $("[name=hiredateS]").focus();
+		     return;
+		  }
+		  if(salVal == ""){
+			  alert("연봉을 입력하세요");
+			  $("[name=sal]").focus();
+			  return;
+		  }
+		  if(!salVal.match(regExp)){
+			  alert("연봉은 숫자형으로 입력해주세요");
+			  $("[name=sal]").focus();
+			  return;
+		  }
+		  if(eImportantVal == ""){
+			  alert("중요도를 선택하세요");
+			  $("[name=eImportant]").focus();
+			  return;
+		  }
+		  if(emailVal == ""){
+			  alert("이메일을 입력하세요");
+			  $("[name=email]").focus();
+			  return;
+		  }
+		  if(!emailVal.match(emailPattern)){
+				alert("이메일 형식이 올바르지 않습니다.")
+				$("[name=email]").focus();
+				return
+		  }
 	      	alert("회원가입 완료!\n로그인 화면으로 이동합니다.")
 	      	document.querySelector("form").submit();
 	      }

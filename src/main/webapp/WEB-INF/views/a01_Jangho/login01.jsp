@@ -58,7 +58,6 @@
           <button class="btn btn-theme btn-block" id="loginBtn" type="button" onclick="login()"><i class="fa fa-lock"></i> 로그인</button>
           <hr>
           <div class="registration">
-            아직 계정이 없으신가요?<br/>
             <a href="${path}/register01.do">PM 회원가입</a>
           </div>
         </div>

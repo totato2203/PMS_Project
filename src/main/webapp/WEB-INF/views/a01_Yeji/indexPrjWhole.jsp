@@ -37,6 +37,30 @@
 .details {
 	height: 16px;
 }
+
+th {
+	text-align: center;
+}
+
+#button-icon {
+	font-size: 65px;
+	position: relative;
+	color: rgba(255,255,255,0.5);
+	
+}
+
+#TOFont {
+	font-size: 16px;
+	text-align: center;
+	color: rgba(255,255,255,0.5);
+}
+.white-panel{
+	position: flex;
+}
+
+canvas{
+	postion: relative;
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
@@ -106,10 +130,93 @@
     Author: TemplateMag.com
     License: https://templatemag.com/license/
   ======================================================= -->
+  <script type="text/javascript">
+  
+  var ckSess ="${emp.ename}"
+  if(ckSess==""){
+	//  alert("location.href=")
+  }  
+  
+  
+//Timer 설정 시작
+  var tid; //setInterval() 함수의 레퍼런스, clearInterval() 호출시 사용
+  var time = "${time01}";
+  var cnt = parseInt(time);//세션시간 설정(단위:초), 이 예제는 10초
+ // alert(cnt);
+  var logoutInfo_url; //자동 로그아웃 안내페이지 호출 url
+  		
+  function counter_init() { //메인화면 세션 카운트 실행
+  	tid = setInterval("counter_run()", 1000); //1초에 반번씩 'counter_run()' 함수 호출
+  }
+  		
+  function counter_run() { //메인화면 세션 카운트 함수
+  	document.all.counter.innerText = time_format(cnt);
+  	cnt--;
+  }
+  		
+  function counter_reset() { //메인화면 카운트 재시작 및 서버 세션 연장
+  	//(1) WAS session 연장을 위해 WAS의 dummy 페이지 호출
+  	// => WAS 호출로직 추가!
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("POST", "${path}/indexprjWhole.do", true);
+	  xhr.onreadystatechange = function(){
+	  if(xhr.readyState == 4) { //통신처리상태 => 0:open()메서드 수행전, 1:로딩중, 2:로딩완료, 3:서버처리중, 4:서버처리끝
+	  if(xhr.status == 200) { //서버처리결과 => 200:성공, 403:접근거부, 404:파일/페이지 없음
+	  rtn = xhr.responseText;
+	  //document.getElementById("content").innerHTML = temp;
+	  //alert("호출성공:" + rtn);
+	  }else{
+	  alert("(호출실패) xhr.status:" + xhr.status);
+	  }
+	  }
+	  };
+	  xhr.send(null);
+  	
+  	//(2) 세션 카운트 초기화
+  	clearInterval(tid);
+  	cnt = parseInt(10000000);//초기값(초단위)
+  	counter_init();//메인화면 세션 카운트 실행
+  	
+  	//(3) 팝업화면 추가 세션 카운트도 초기화
+  	document.all.ncounter.innerText = ""; 
+  }
+  function logoutInfo() { //로그아웃 후 자동로그아웃 안내화면으로 이동
+		self.location = "${path}/loginPage.do";
+	}		
+  		
+  function logout(logoutUrl) { //로그아웃 후 로그인화면으로 이동 
+  	self.location = "${path}/loginPage.do";
+  	
+  }
+  //Timer 설정 끝
+
+
+  //시간 포멧 설정 함수
+  function time_format(s) {
+  	var nHour=0;
+  	var nMin=0;
+  	var nSec=0;
+  	if(s>0) {
+  		nMin = parseInt(s/60);
+  		nSec = s%60;
+
+  		if(nMin>60) {
+  			nHour = parseInt(nMin/60);
+  			nMin = nMin%60;
+  		}
+  	} 
+  	
+  	if(nSec<10) nSec = "0"+nSec;
+  	
+  	if(nMin<10) nMin = "0"+nMin;
+  		return ""+nHour+":"+nMin+":"+nSec;
+  	}
+  
+  </script>
 </head>
 
-<body>
-	<section id="container">
+<body onload="counter_init()">
+  <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -135,6 +242,7 @@
                 <p class="green">Select Dashboard</p>
               </li>
               <li>
+            
                 <a href="${path}/indexprjWhole.do">
                   <div class="task-info">
                     <div class="desc">A Whole</div>
@@ -142,23 +250,30 @@
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1000">               <!-- 추후 수정 -->
+                <a href="${path}/indexprj1.do?prjno=P1000">					<!-- 추후 수정 -->
                   <div class="task-info">
                     <div class="desc">Project1</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1001">               <!-- 추후 수정 -->
+                <a href="${path}/indexprj1.do?prjno=P1001">					<!-- 추후 수정 -->
                   <div class="task-info">
                     <div class="desc">Project2</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1002">               <!-- 추후 수정 -->
+                <a href="${path}/indexprj1.do?prjno=P1002">					<!-- 추후 수정 -->
                   <div class="task-info">
                     <div class="desc">Project3</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="${path}/indexprj1.do?prjno=P1003">					<!-- 추후 수정 -->
+                  <div class="task-info">
+                    <div class="desc">Project4</div>
                   </div>
                 </a>
               </li>
@@ -183,12 +298,12 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" class="img-circle" width="80"></a></p>   <!-- 추후 eimage 수정 예정 -->
+          <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></a></p>
           <h5 class="centered">${emp.ename}</h5>
           <li class="mt">
-            <a class="active" href="${path}/indexprjWhole.do">
+            <a href="${path}/indexprjWhole.do">
               <i class="fa fa-dashboard"></i>
-              <span>대쉬보드</span>
+              <span>대시보드</span>
             </a>
           </li>
           <li class="sub-menu">
@@ -264,30 +379,66 @@
 		<!--main content start-->
 		<section id="main-content">
 			<section class="wrapper">
+			<div class="border-head p-2">
+              <h3> 전체 대시보드</h3>
+            </div>
 				<div class="row">
 				<div id="main-button" class="d-flex justify-content-between mb-4">
 
-						<div onclick="location.href=''" class="p-5 m-3"
-							style="width: 22%; height: 100px; background-color: #EE5F63;">Time
-							out</div>
-						<div onclick="location.href=''" class="p-5 m-3"
-							style="width: 22%; height: 100px; background-color: #2D9CD1;">My
-							tasks</div>
-						<div onclick="location.href=''" class="p-5 m-3"
-							style="width: 22%; height: 100px; background-color: #00A985;">Events
-							today</div>
-						<div onclick="location.href=''" class="p-5 m-3"
-							style="width: 22%; height: 100px; background-color: #1564AF;">New
-							post</div>
+						<div onclick="location.href=''" class="p-5 m-3" id="TOFont"
+							style="width: 22%; height: 100px; background-color: #EE5F63;">
+							 <i class="fa fa-clock-o" id="button-icon"></i>&nbsp;&nbsp;&nbsp; Time out
+							 <script type="text/javascript">
+							 var timeleft = 1800;
+							 var downloadTimer = setInterval(function(){
+							   if(timeleft <= 0){
+							     clearInterval(downloadTimer);
+							   }
+							   document.getElementById("counter").value = 1800 - timeleft;
+							   timeleft -= 1;
+							 }, 1000);
+							 </script>
+							 <span id="counter"></span><input type="button" value="연장" onclick="counter_reset()">
+							 
+						</div>
+						<div onclick="location.href=''" class="p-5 m-3" id="TOFont"
+							style="width: 22%; height: 100px; background-color: #2D9CD1;">
+						<i class="fa fa-tasks" id="button-icon"></i>&nbsp;&nbsp;&nbsp; My tasks</div>
+						<div onclick="location.href=''" class="p-5 m-3" id="TOFont"
+							style="width: 22%; height: 100px; background-color: #00A985;">
+							<i class="fa fa-calendar-o" id="button-icon"></i>&nbsp;&nbsp;&nbsp; Events</div>
+						<div onclick="location.href='${path}/kanban.do'" class="p-5 m-3" id="TOFont"
+							style="width: 22%; height: 100px; background-color: #1564AF;">
+							<i class="fa fa-check-square-o" id="button-icon"></i>&nbsp;&nbsp;&nbsp; Kanban</div>
 					</div>
-					<div class="col-lg-12 main-chart" style="margin-top:-35px">
-						<div class="row mt">
+					<div class="col-lg-12 main-chart" style="margin-top:-35px;">
+						<div class="row mt" style="height: 360px;">
 							<!-- SERVER STATUS PANELS -->
 							<div class="col-lg-4 col-sm-5 mb"> 
-								<div class="grey-panel pn donut-chart">
-									<div class="grey-header">
-										<h5>타이틀</h5>
+								<div class="white-panel pn" style="height: 320px;">
+									<div class="white-header">
+										<h5>프로젝트 위험관리</h5>
 									</div>
+									<div> 
+							              <div>
+							                <table class="table table-hover">
+							                  <thead>
+							                  <tr>
+							                    <th>No.</th>
+							                    <th>제목</th>
+							                    <th>등록일</th>
+							                  </tr>
+							                  </thead>
+							                  <tbody>
+							                    <tr>
+							                      <td>위험관리 번호</td>
+							                      <td>위험관리 종류</td>
+							                      <td>등록일</td>
+							                    </tr>
+							                  </tbody>
+							                </table>
+							              </div>
+							            </div>
 									<div class="row">
 									</div>
 								</div>
@@ -295,19 +446,84 @@
 							</div>
 							<!-- /col-md-4-->
 							<div class="col-lg-4">
-								<div class="green-panel pn">
-									<div class="green-header">
-										<h5>타이틀</h5>
+								<div class="white-panel pn" style="height: 320px;">
+			 						<div class="white-header">
+										<h5>프로젝트 범위기술서</h5>
+										
 									</div>
+									<div>
+							              <div>
+							                <table class="table table-hover">
+							                  <thead>
+							                  <tr>
+							                    <th>No.</th>
+							                    <th>프로젝트명</th>
+							                    <th>결과물</th>
+							                  </tr>
+							                  </thead>
+							                  <tbody>
+							                    <tr>
+							                      <td>1</td>
+							                      <td>AEAP PMS</td>
+							                      <td>AEAP PMS</td>
+							                    </tr>
+							                  </tbody>
+							                </table>
+							              </div>
+							            </div>
 								</div>
 							</div>
 
 							<!-- /col-md-4 -->
 							<div class="col-lg-4">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>타이틀</h5>
+                <div class="white-panel pn" style="height: 320px;">
+                  <div class="white-header">
+                    <h5>프로젝트 통합 위험도 현황</h5>
                   </div>
+                   <!-- 전체 프로젝트 위험정도 상중하 수 -->
+	
+	<canvas id="RiskDeg" height="240"></canvas>
+	<script>
+    var riskdeg = []
+	var riskCnt = []
+	$.ajax({
+		url:"${path}/getRiskDeg.do",
+		dataType:"json",
+		success:function(data){
+			var data = data.riskdeg
+			$(data).each(function(idx, p){
+				riskCnt.push(Number(p.riskCnt))
+				riskdeg.push(p.riskdeg)
+			})
+		
+			
+			 new Chart(document.querySelector('#RiskDeg'), {
+				    type: 'pie',
+				    data: {
+				      labels: riskdeg,
+				      datasets: [{
+				        label: '위험도',
+				        data: riskCnt,
+				        backgroundColor: [
+				          'rgba(255, 99, 132, 0.2)',
+				          'rgba(255, 159, 64, 0.2)',
+				          'rgba(255, 205, 86, 0.2)',
+				          'rgba(75, 192, 192, 0.2)',
+				          'rgba(54, 162, 235, 0.2)',
+				          'rgba(153, 102, 255, 0.2)',
+				          'rgba(201, 203, 207, 0.2)'
+				        ],
+						hoverOffset: 4
+				
+				      }]
+				    },
+	
+				  });
+		}
+	})
+	 
+
+</script>
                 </div>
                 <!--  /darkblue panel -->
               </div>
@@ -315,21 +531,70 @@
 						</div>
 					</div>
 					<div class="col-lg-12 main-chart" style="margin-top:-35px">
-						<div class="row mt">
+						<div class="row mt" style="height: 460px;">
 							<!-- SERVER STATUS PANELS -->
 							<div class="col-lg-4">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>타이틀</h5>
+                <div class="white-panel pn" style="height: 420px;">
+                  <div class="white-header">
+                    <h5>프로젝트별 종합 품질점수</h5>
                   </div>
+                                     	<!-- 프로젝트별 종합 품질점수 -->
+	
+	<canvas id="TotScore" height="300"></canvas> 
+	<script>
+    var tot = []
+    var prjno9 = []
+	$.ajax({
+		url:"${path}/getTotScore.do",
+		dataType:"json",
+		success:function(data){
+			var data = data.prjscore
+			$(data).each(function(idx, p){
+				tot.push(Number(p.tot))
+				prjno9.push(p.prjno)
+				
+		
+			})
+			 new Chart(document.querySelector('#TotScore'), {
+				    type: 'doughnut',
+				    data: {
+				      labels: prjno9,
+				      datasets: [{
+				        label: '품질점수 평균',
+				        data: tot,
+				        backgroundColor: [
+				          'rgba(255, 99, 132, 0.2)',
+				          'rgba(255, 159, 64, 0.2)',
+				          'rgba(255, 205, 86, 0.2)',
+				          'rgba(75, 192, 192, 0.2)',
+				          'rgba(54, 162, 235, 0.2)',
+				          'rgba(153, 102, 255, 0.2)',
+				          'rgba(201, 203, 207, 0.2)'
+				        ],
+						hoverOffset: 4
+				
+				      }]
+				    },
+				    option: {
+				    	responsive: false
+				    	
+				    }
+	
+				  });
+		}
+	})
+	 
+
+</script>
                 </div>
                 <!--  /darkblue panel -->
               </div>
-							<div class="col-lg-8 col-sm-5 mb"> 
-								<div class="grey-panel pn donut-chart">
-									<div class="grey-header">
-										<h5>타이틀</h5>
-											<canvas id="PrjRate"></canvas>
+							<div class="col-lg-8 col-sm-5 mb" style="height: 460px;"> 
+								<div class="white-panel pn" style="height: 420px;">
+									<div class="white-header">
+										<h5>프로젝트별 진행상황</h5>
+									</div>
+									<canvas id="PrjRate"></canvas>
 	<script>
     var prjRate1 = []
     var prjno1 = []
@@ -386,7 +651,6 @@
 	 
 
 </script>
-									</div>
 									<div class="row">
 									</div>
 								</div>
@@ -400,20 +664,135 @@
 						<div class="row mt">
 							<!-- SERVER STATUS PANELS -->
 							<!-- /col-md-4-->
-							<div class="col-lg-6">
-								<div class="green-panel pn">
-									<div class="green-header">
-										<h5>타이틀</h5>
+							<div class="col-lg-6" style="height: 460px;">
+								<div class="white-panel pn" style="height: 420px;">
+									<div class="white-header">
+										<h5>프로젝트별 참여 사원 수</h5>
 									</div>
+								<canvas id="PrjHR" height="200"></canvas>
+	<script>
+    var cnt = []
+	var prjno2 = []
+	$.ajax({
+		url:"${path}/getPrjHR.do",
+		dataType:"json",
+		success:function(data){
+			var data = data.prjemplist
+			$(data).each(function(idx, p){
+				cnt.push(Number(p.cnt))
+				prjno2.push(p.prjno)
+			})
+			 new Chart(document.querySelector('#PrjHR'), {
+				    type: 'bar',
+				    data: {
+
+				      labels: prjno2,
+				      datasets: [{
+				        label: '프로젝트별 참여 사원 수',
+				        data: cnt,
+				        backgroundColor: [
+				          'rgba(255, 99, 132, 0.2)',
+				          'rgba(255, 159, 64, 0.2)',
+				          'rgba(255, 205, 86, 0.2)',
+				          'rgba(75, 192, 192, 0.2)',
+				          'rgba(54, 162, 235, 0.2)',
+				          'rgba(153, 102, 255, 0.2)',
+				          'rgba(201, 203, 207, 0.2)'
+				        ],
+				        borderColor: [
+				          'rgb(255, 99, 132)',
+				          'rgb(255, 159, 64)',
+				          'rgb(255, 205, 86)',
+				          'rgb(75, 192, 192)',
+				          'rgb(54, 162, 235)',
+				          'rgb(153, 102, 255)',
+				          'rgb(201, 203, 207)'
+				        ],
+				        borderWidth: 1
+				      }]
+				    },
+				    options: {
+				      scales: {
+				    	  yAxes: [{
+				    		  ticks:{
+				    			  beginAtZero: true,
+				    			  max: 20
+				    		  }
+				    	  }]
+				      }
+				    }
+				  });
+		}
+	})
+	 
+
+</script>
 								</div>
 							</div>
 
 							<!-- /col-md-4 -->
-							<div class="col-lg-6">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>타이틀</h5>
+							<div class="col-lg-6" style="height: 460px;">
+                <div class="white-panel pn" style="height: 420px;">
+                  <div class="white-header">
+                    <h5>프로젝트별 예산</h5>
                   </div>
+                  <canvas id="PrjFinance" height="200"></canvas> 
+	<script>
+    var prjfinance = []
+	var prjno3 = []
+	$.ajax({
+		url:"${path}/getPrjFinance.do",
+		dataType:"json",
+		success:function(data){
+			var data = data.prjfinance
+			$(data).each(function(idx, p){
+				prjfinance.push(Number(p.prjfinance))
+				prjno3.push(p.prjno)
+			})
+			 new Chart(document.querySelector('#PrjFinance'), {
+				    type: 'bar',
+				    data: {
+				      labels: prjno3,
+				      datasets: [{
+				        label: '프로젝트별 예산',
+				        data: prjfinance,
+				        backgroundColor: [
+				          'rgba(255, 99, 132, 0.2)',
+				          'rgba(255, 159, 64, 0.2)',
+				          'rgba(255, 205, 86, 0.2)',
+				          'rgba(75, 192, 192, 0.2)',
+				          'rgba(54, 162, 235, 0.2)',
+				          'rgba(153, 102, 255, 0.2)',
+				          'rgba(201, 203, 207, 0.2)'
+				        ],
+				        borderColor: [
+				          'rgb(255, 99, 132)',
+				          'rgb(255, 159, 64)',
+				          'rgb(255, 205, 86)',
+				          'rgb(75, 192, 192)',
+				          'rgb(54, 162, 235)',
+				          'rgb(153, 102, 255)',
+				          'rgb(201, 203, 207)'
+				        ],
+				        borderWidth: 1
+				      }]
+				    },
+				    options: {
+				      scales: {
+				    	  yAxes: [{
+				    		  ticks:{
+				    			  beginAtZero: true,
+				    			  max: 9999
+				    		  }
+				    	  }]
+				      }
+				    }
+				  });
+		}
+	})
+	 
+
+</script>
                 </div>
                 <!--  /darkblue panel -->
               </div>
@@ -458,7 +837,7 @@
 		</footer>
 		<!--footer end-->
 	</section>
-
+ 
 
 	<script type="text/javascript">
     $(document).ready(function() {
@@ -481,234 +860,6 @@
     });
   </script>
 
-	<script>
-    (function() {
-      var data = [{
-        "xScale": "ordinal",
-        "comp": [],
-        "main": [{
-          "className": ".main.l1",
-          "data": [{
-            "y": 15,
-            "x": "project1"
-          }, {
-            "y": 11,
-            "x": "project2"
-          }, {
-            "y": 8,
-            "x": "project3"
-          }, {
-            "y": 10,
-            "x": "project4"
-          }]
-        }, {
-          "className": ".main.l2",
-          "data": [{
-            "y": 29,
-            "x": "project1"
-          }, {
-            "y": 33,
-            "x": "project2"
-          }, {
-            "y": 13,
-            "x": "project3"
-          }, {
-            "y": 16,
-            "x": "project4"
-          }]
-        }, {
-            "className": ".main.l3",
-            "data": [{
-              "y": 20,
-              "x": "project1"
-            }, {
-              "y": 37,
-              "x": "project2"
-            }, {
-              "y": 10,
-              "x": "project3"
-            }, {
-              "y": 22,
-              "x": "project4"
-            }]
-          }],
-        "type": "line-dotted",
-        "yScale": "linear"
-      }, {
-        "xScale": "ordinal",
-        "comp": [],
-        "main": [{
-          "className": ".main.l1",
-          "data": [{
-            "y": 12,
-            "x": "project1"
-          }, {
-            "y": 18,
-            "x": "project2"
-          }, {
-            "y": 8,
-            "x": "project3"
-          }, {
-            "y": 7,
-            "x": "project4"
-          }]
-        }, {
-          "className": ".main.l2",
-          "data": [{
-            "y": 29,
-            "x": "project1"
-          }, {
-            "y": 33,
-            "x": "project2"
-          }, {
-            "y": 13,
-            "x": "project3"
-          }, {
-            "y": 16,
-            "x": "project4"
-          }]
-        }, {
-            "className": ".main.l3",
-            "data": [{
-              "y": 20,
-              "x": "project1"
-            }, {
-              "y": 30,
-              "x": "project2"
-            }, {
-              "y": 12,
-              "x": "project3"
-            }, {
-              "y": 16,
-              "x": "project4"
-            }]
-          }],
-        "type": "cumulative",
-        "yScale": "linear"
-      }, {
-        "xScale": "ordinal",
-        "comp": [],
-        "main": [{
-          "className": ".main.l1",
-          "data": [{
-            "y": 12,
-            "x": "project1"
-          }, {
-            "y": 18,
-            "x": "project2"
-          }, {
-            "y": 8,
-            "x": "project3"
-          }, {
-            "y": 7,
-            "x": "project4"
-          }]
-        }, {
-          "className": ".main.l2",
-          "data": [{
-            "y": 29,
-            "x": "project1"
-          }, {
-            "y": 33,
-            "x": "project2"
-          }, {
-            "y": 13,
-            "x": "project3"
-          }, {
-            "y": 16,
-            "x": "project4"
-          }]
-        }, {
-            "className": ".main.l3",
-            "data": [{
-              "y": 12,
-              "x": "project1"
-            }, {
-              "y": 38,
-              "x": "project2"
-            }, {
-              "y": 32,
-              "x": "project3"
-            }, {
-              "y": 24,
-              "x": "project4"
-            }]
-          }
-        ],
-        "type": "bar",
-        "yScale": "linear"
-      }];
-      var order = [0, 2],
-        i = 0,
-        xFormat = d3.time.format('project%'),
-        chart = new xChart('line-dotted', data[order[i]], '#chart', {
-          axisPaddingTop: 5,
-          dataFormatX: function(x) {
-            return new String(x);
-          },
-          tickFormatX: function(x) {
-            return xFormat(x);
-          },
-          timing: 1250
-        }),
-        rotateTimer,
-        toggles = d3.selectAll('.multi button'),
-        t = 3500;
-
-      function updateChart(i) {
-        var d = data[i];
-        chart.setData(d);
-        toggles.classed('toggled', function() {
-          return (d3.select(this).attr('data-type') === d.type);
-        });
-        return d;
-      }
-
-      toggles.on('click', function(d, i) {
-        clearTimeout(rotateTimer);
-        updateChart(i);
-      });
-
-      function rotateChart() {
-        i += 1;
-        i = (i >= order.length) ? 0 : i;
-        var d = updateChart(order[i]);
-        rotateTimer = setTimeout(rotateChart, t);
-      }
-      rotateTimer = setTimeout(rotateChart, t);
-    }());
-    
-    
-    
-    const labels = Utils.months({count: 7});
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)'
-        ],
-        borderWidth: 1
-      }]
-    };
-    
-  </script>
 
 </body>
 

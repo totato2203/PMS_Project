@@ -68,7 +68,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="${path}/indexprjWhole.do" class="logo"><b>AEAP<span>PMS</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -77,190 +77,61 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
+                <p class="green">Select Dashboard</p>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprjWhole.do">
                   <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
+                    <div class="desc">A Whole</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1000">
                   <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
+                    <div class="desc">Project1</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1001">
                   <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
+                    <div class="desc">Project2</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1002">
                   <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
+                    <div class="desc">Project3</div>
                   </div>
                 </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
               </li>
             </ul>
           </li>
           <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
-              </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src=""></span>
-                  <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src=""></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src=""></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src=""></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox dropdown end -->
-          <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-bell-o"></i>
-              <span class="badge bg-warning">7</span>
-              </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-yellow"></div>
-              <li>
-                <p class="yellow">You have 7 new notifications</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
-                  <span class="small italic">4 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
-                  <span class="small italic">30 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
-                  <span class="small italic">2 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
-                  <span class="small italic">3 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="${path }/logout.do">Logout</a></li>
         </ul>
       </div>
     </header>
+    <script type="text/javascript">
+    
+    // session 만료 시 로그아웃 
+   var sessionVal = "${emp.id}"
+   if(sessionVal == ""){
+      alert("세션이 만료되어 로그인 페이지로 이동합니다.")
+      location.href="${path}/logout.do"
+   }
+    </script>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
@@ -270,115 +141,80 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></a></p>
+          <h5 class="centered">${emp.ename}<br>(${emp.empno})</h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="${path}/indexprjWhole.do">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
+              <span>대시보드</span>
+            </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
+              <span>통합 프로젝트</span>
+            </a>
             <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
+              <li><a href="${path}/prjList.do">통합 프로젝트 관리</a></li>
+              <li>
+              <c:if test="${emp.auth == 'PM'}"> <a href="${path}/prjInsertForm.do">프로젝트 등록</a> </c:if>
+              </li>
             </ul>
           </li>
+          <li class="sub-menu">
+            <a href="${path}/prjSchdList.do ">
+              <i class="fa fa-calendar-o"></i>
+              <span>일정관리</span>
+            </a>
+          </li>
+           <c:if test="${emp.auth != '사원'}">
+          <li>
+             <a href="${path}/cosPrjList.do">
+              <i class="fa fa-money"></i>
+              <span>재정관리</span>
+            </a>
+          </li>
+         </c:if>
+
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
+              <i class="fa fa-users"></i>
+              <span>인적자원관리</span>
+            </a>
             <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
+              <li><a href="${path}/empList.do">전체 사원 관리</a></li>
+              <li><a href="${path}/prjEmpManage.do">프로젝트 사원 관리</a></li>
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="404.html">404 Error</a></li>
-              <li><a href="500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a class="active" href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
-              <li class="active"><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
+            <a href="${path}/prjlist.do">
+              <i class="fa fa-suitcase"></i>
+              <span>품질관리</span>
+            </a>
           </li>
           <li>
-            <a href="inbox.html">
+            <a href="${path}/mailForm.do">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>Charts</span>
-              </a>
-            <ul class="sub">
-              <li><a href="morris.html">Morris</a></li>
-              <li><a href="chartjs.html">Chartjs</a></li>
-              <li><a href="flot_chart.html">Flot Charts</a></li>
-              <li><a href="xchart.html">xChart</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
+              <span>메일</span>
+            </a>
           </li>
           <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
+            <a href="${path}/chat.do">
+              <i class="fa fa-comments-o"></i>
+              <span>채팅</span>
               </a>
+          </li>
+          <li>
+            <a href="${path}/boardList.do">
+              <i class="fa fa-edit"></i>
+              <span>회의록</span>
+            </a>
+          </li>
+          <li>
+            <a href="${path}/introduce.do">
+              <i class="fa fa-info-circle"></i>
+              <span>AEAP소개</span>
+            </a>
           </li>
         </ul>
         <!-- sidebar menu end-->
@@ -391,7 +227,7 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-      <h3><i class="fa fa-angle-right"></i>인적자원 > 인적자원 관리 > 사원 등록</h3>
+      <h3>　<i class="fa fa-angle-right"></i> 인적자원 <i class="fa fa-angle-right"></i> 인적자원 관리 <i class="fa fa-angle-right"></i> 사원 등록</h3>
       <!--ADVANCED FILE INPUT-->
       <div class="row mt" id="row mt">
 		          <div class="col-lg-12">
@@ -407,11 +243,129 @@
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">Personal Information</h4>
                         <form class="form-horizontal" id="eform" enctype="multipart/form-data" action="${path}/empInsert.do" method="post">
-                        <div class="form-group last">		                  
-		                  
-		                   
-		                  <div class="form-group">
-                            <label class="col-lg-2 control-label">사원사진</label>
+                        <div class="form-group last">
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label"style="color:blue;">아이디*</label>
+                            <div class="col-lg-6">
+                            	<div class="form-inline">
+                              		<input type="text" id="id" name="id" class="form-control"
+                              			value="" placeholder="아이디를 입력하세요">
+                              		<input type="button" class="btn btn-theme03" name="idDuplConfirm" value="중복 확인">
+                              		<input type="hidden" name="idConfirm" value="idCheck">
+                              		<span class="help-block">* 아이디를 8자 이상, 16자 이하로 입력해주세요.</span>
+                              		<h5 id="idMsg">　</h5>
+                              	</div>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">비밀번호*</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder="비밀번호를 입력하세요" name="pw" id="c-name" class="form-control" value=""/> 
+                              <span class="help-block">* 비밀번호를 8자 이상, 16자 이하로 입력해주세요.</span>
+                          	 	<h5 id="pwMsg">　</h5>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">이름*</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder="이름을 입력하세요" name="ename" id="c-name" class="form-control" value=""/>
+                            </div>
+                          </div>                         
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">성별*</label>
+                            <div class="col-lg-6">
+                            	<input type="radio" name="gender" value="남자"/> 남자　
+								<input type="radio" name="gender" value="여자"/> 여자
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">생년월일*</label>
+                            <div class="col-lg-6">
+                              <input type="date" name="birthS" placeholder="생년월일을 입력하세요" class="form-control" 
+								value='<fmt:formatDate value="" 
+								pattern="yyyy-MM-dd"/>'/>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">직책*</label>
+                            <div class="col-lg-6">                            
+                              <select name="job">
+                              	<option value="" selected>=====선택=====</option>
+                              	<option value="사원">사원</option>
+                              	<option value="대리">대리</option>
+                              	<option value="과장">과장</option>
+                              	<option value="PM">PM</option>
+                              	<option value="임원">임원</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">권한*</label>
+                            <div class="col-lg-6">
+                              <select name="auth">
+                              	<option value="" selected>=====선택=====</option>
+                             	<option value="사원">사원</option>
+                              	<option value="PM">PM</option>
+                              	<option value="임원">임원</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">부서*</label>         
+                            <div class="col-lg-6">
+                              <select name="deptno">
+                              	<option value="" selected>=====선택=====</option>
+                              	<option value="10">IT 사업부</option>
+                              	<option value="20">백엔드 개발</option>
+                              	<option value="30">프론트엔드 개발</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">관리자번호</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder="관리자번호를 입력하세요" name="mgr" id="country" class="form-control" value=""/>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">입사일*</label>
+                            <div class="col-lg-6">
+                              <input type="date" name="hiredateS" placeholder="입사일" class="form-control"  
+								value='<fmt:formatDate value="" 
+								pattern="yyyy-MM-dd"/>'/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">연봉*</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder="연봉을 입력하세요" name="sal" id="country" class="form-control" value=""/>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" style="color:blue;">중요도*</label>
+                            <div class="col-lg-6">
+                              <select name="eImportant">
+                              	<option value="" selected>=====선택=====</option>
+                              	<option value="상">상</option>
+                              	<option value="중">중</option>
+                              	<option value="하">하</option>
+                              </select>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">프로필 사진</label>
                             <div class="col-md-9">
 		                    <div class="fileupload fileupload-new" data-provides="fileupload">
 		                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
@@ -422,125 +376,16 @@
 		                        <span class="btn btn-theme02 btn-file">
 		                          <span class="fileupload-new"><i class="fa fa-paperclip"></i>Select Image</span>
 		                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-		                        <input type="file" name="" class="default" placeholder="파일을 첨부하세요"/>
+		                        <input type="file" name="report" class="default" placeholder="파일을 첨부하세요"/>
 		                        </span>
+		                        <!--  
 		                        <a href="advanced_form_components.html#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> Remove</a>
+		                        -->
 		                      </div>
 		                    </div>
-		                    <span class="label label-info">NOTE!</span>
-		                    <span>
-		                      Attached image thumbnail is
-		                      supported in Latest Firefox, Chrome, Opera,
-		                      Safari and Internet Explorer 10 only
-		                      </span>
 		                  </div>
                           </div>
-		                  
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">파일</label>
-                            <div class="col-lg-6">
-                              <input type="file" id="exampleInputFile" name ="report" placeholder="파일을 첨부하세요" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">사진</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="사진경로명을 입력하세요" name="eimage" id="c-name" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">id*</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="아이디를 입력하세요" name="id" id="c-name" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">pw*</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="비밀번호를 입력하세요" name="pw" id="c-name" class="form-control" value=""/> 
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">사원명*</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="사원명을 입력하세요" name="ename" id="c-name" class="form-control" value=""/>
-                            </div>
-                          </div>                         
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">부서번호</label>         
-                            <div class="col-lg-6">
-                              <select name="deptno">
-                              	<option value="10">10</option>
-                              	<option value="20">20</option>
-                              	<option value="30">30</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">직책*</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="직책을 입력하세요" name="job" id="country" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">입사일</label>
-                            <div class="col-lg-6">
-                              <input type="date" name="hiredateS" placeholder="입사일" class="form-control"  
-								value='<fmt:formatDate value="" 
-								pattern="yyyy-MM-dd"/>'/>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">연봉*</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="연봉을 입력하세요" name="sal" id="country" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">관리자번호</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="관리자번호를 입력하세요" name="mgr" id="country" class="form-control" value=""/>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">권한*</label>
-                            <div class="col-lg-6">
-                              <select name="auth">
-                              	<option value="임원">임원</option>
-                              	<option value="PM">PM</option>
-                              	<option value="사원">사원</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">중요도*</label>
-                            <div class="col-lg-6">
-                              <select name="eImportant">
-                              	<option value="상">상</option>
-                              	<option value="중">중</option>
-                              	<option value="하">하</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">생년월일</label>
-                            <div class="col-lg-6">
-                              <input type="date" name="birthS" placeholder="생년월일을 입력하세요" class="form-control" 
-								value='<fmt:formatDate value="" 
-								pattern="yyyy-MM-dd"/>'/>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">성별</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="성별을 입력하세요" name="gender" id="country" class="form-control" value=""/>
-                            </div>
-                          </div>                                                                        
-                                                                        
+                                                              
                           <h4 class="mb">Contact Information</h4>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">주소</label>
@@ -549,27 +394,21 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">핸드폰번호</label>
+                            <label class="col-lg-2 control-label">연락처</label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder="전화번호를 입력하세요(010-0000-0000)" name="phoneNum" id="cell" class="form-control" value=""/>
+                              <input type="text" placeholder="전화번호를 입력하세요 (010-0000-0000)" name="phoneNum" id="cell" class="form-control" value=""/>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">Email*</label>
+                            <label class="col-lg-2 control-label" style="color:blue;">이메일*</label>
                             <div class="col-lg-6">
                               <span class="tooltip">이메일 형식을 지켜주세요.</span>
                               <input type="text" placeholder="이메일을 입력하세요" name="email" id="email" class="form-control" value=""/>
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">기타사항</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder="기타사항을 입력하세요" name="description" id="description" class="form-control">
-                            </div>
-                          </div>
                           
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">content</label>
+                            <label class="col-lg-2 control-label" style="color:white">content</label>
                             <div class="col-lg-6">
                               <input type="hidden" placeholder=" " id="skype" name="content" class="form-control">
                             </div>
@@ -631,12 +470,57 @@
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script type="text/javascript">
+	$(document).ready(function(){
+		$("[name=idDuplConfirm]").click(function(){
+			$.ajax({
+		    	url:"${path}/hasEmp.do",
+		    	data:"id=" + $("[name=id]").val(),
+		    	dataType:"json",
+		    	success:function(data){
+		    		console.log(data)
+		    		if(data.hasEmp){
+		    			alert("이미 존재하는 아이디 입니다!\n다른 아이디를 입력하세요.")
+		    			$("[name=id]").val("").focus();
+		    			$("#idMsg").text("　");
+		    		}else if($("[name=id]").val() == ""){
+		    			alert("아이디를 입력하세요.")
+		    			$("[name=id]").focus();
+		    			$("#idMsg").text("　");
+		    		}else{
+		    			alert("사용 가능한 아이디 입니다!")
+		    			$("[name=idConfirm]").val("idCheck");
+		    		}
+		    		
+		    	},
+		    	error:function(err){
+		    		console.log(err)
+		    	}
+			});
+		})
+	
+		$("[name=id]").keyup(function(){
+			$("[name=idConfirm]").val("idUncheck");
+			var idVal = $(this).val() 
+			if(idVal.length>=8 && idVal.length<=16){
+				$("#idMsg").text("유효한 아이디 입니다.").css("color","green")
+			} else {
+				$("#idMsg").text("유효하지 않은 아이디 입니다.").css("color","red")	  
+			}
+		});
+		$("[name=pw]").keyup(function(){
+			var pwVal = $(this).val() 
+			if(pwVal.length>=8 && pwVal.length<=16){
+				$("#pwMsg").text("유효한 비밀번호 입니다.").css("color","green")
+			} else {
+				$("#pwMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")
+			}
+		});
+	})
+  
   var isInsert = "${isInsert}"
 	  if(isInsert=="Y"){
-		  if(!confirm("등록 성공했습니다!")){
-			  //조회 화면 이동
-			  location.href="${path}/empList.do"
-		  }
+		alert("등록 성공했습니다!")
+		location.href="${path}/empList.do"
 	  }
   
   function goMain(){
@@ -645,70 +529,108 @@
   
   function insertProc(){
 	  if(confirm("등록하시겠습니까?")){
-		  var enameVal = $("[name=ename]").val();
-		  if(enameVal == ""){
-			  alert("사원명을 등록하세요");
-			  $("[name=ename]").focus();
-			  return;
-		  }
 		  var idVal = $("[name=id]").val();
 		  if(idVal == ""){
-			  alert("임시ID를 등록하세요");
+			  alert("임시 아이디를 입력하세요");
 			  $("[name=id]").focus();
 			  return;
 		  }
+		  if(!(idVal.length>=8 && idVal.length<=16)){
+	    	  alert("유효하지 않은 아이디 입니다.");
+	    	  $("[name=id]").focus();
+	    	  return;
+	      }
+		  var idConfirmVal = $("[name=idConfirm]").val();
+		  if(idConfirmVal == "idUncheck"){
+	    	  alert("아이디를 중복 확인 하세요.")
+	    	  return;
+	      }
+		  
 		  var pwVal = $("[name=pw]").val();
 		  if(pwVal == ""){
-			  alert("임시PW를 등록하세요");
+			  alert("임시 비밀번호를 입력하세요");
 			  $("[name=pw]").focus();
 			  return;
 		  }
+		  if(!(pwVal.length>=8 && pwVal.length<=16)){
+		      alert("유효하지 않은 비밀번호 입니다.");
+		      $("[name=pw]").focus();
+		      return;
+		  }
 		  
-		  var pwVal = $("[name=sal]").val();
+		  var enameVal = $("[name=ename]").val();
+		  if(enameVal == ""){
+			  alert("이름을 입력하세요");
+			  $("[name=ename]").focus();
+			  return;
+		  }
+		  var genderVal = $("[name=gender]").val();
+		  if(genderVal == ""){
+		     alert("성별을 선택하세요");
+		     $("[name=gender]").focus();
+		     return;
+		  }
+		  var birthVal = $("[name=birthS]").val();
+		  if(birthVal == ""){
+		     alert("생년월일을 선택하세요");
+		     $("[name=birthS]").focus();
+		     return;
+		  }
+		  var jobVal = $("[name=job]").val();
+		  if(jobVal == ""){
+		     alert("직책을 선택하세요");
+		     $("[name=job]").focus();
+		     return;
+		  }
+		  var authVal = $("[name=auth]").val();
+		  if(authVal == ""){
+		     alert("권한을 선택하세요");
+		     $("[name=auth]").focus();
+		     return;
+		  }
+		  var deptnoVal = $("[name=deptno]").val();
+		  if(deptnoVal == ""){
+		     alert("부서를 선택하세요");
+		     $("[name=deptno]").focus();
+		     return;
+		  }
+		  var hiredateVal = $("[name=hiredateS]").val();
+		  if(hiredateVal == ""){
+		     alert("입사일을 선택하세요");
+		     $("[name=hiredateS]").focus();
+		     return;
+		  }
+		  var salVal = $("[name=sal]").val();
+		  var regExp = /^[0-9]*$/;
 		  if(salVal == ""){
-			  alert("연봉을 등록하세요");
+			  alert("연봉을 입력하세요");
 			  $("[name=sal]").focus();
 			  return;
 		  }
-
-		  
-		  var salVal = $("[name=sal]").val();
-		  var regExp = /^[0-9]*$/;
 		  if(!salVal.match(regExp)){
 			  alert("연봉은 숫자형으로 입력해주세요");
 			  $("[name=sal]").focus();
 			  return;
 		  }
-
-		  var authVal = $("[name=auth]").val();
-		  if(authVal == ""){
-			  alert("권한을 등록하세요");
-			  $("[name=auth]").focus();
-			  return;
-		  }
 		  var eImportantVal = $("[name=eImportant]").val();
 		  if(eImportantVal == ""){
-			  alert("중요도를 등록하세요");
+			  alert("중요도를 선택하세요");
 			  $("[name=eImportant]").focus();
 			  return;
 		  }
-
-		  
-		  
-		  
-		  var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-		  var inputEmail = $("[name=email]").val();
-		  if(!inputEmail.match(emailPattern)){
-				alert("이메일 형식이 올바르지 않습니다.")
-				$("[name=email]").focus();
-				return
-			}
 		  var emailVal = $("[name=email]").val();
 		  if(emailVal == ""){
-			  alert("이메일을 등록하세요");
+			  alert("이메일을 입력하세요");
 			  $("[name=email]").focus();
 			  return;
 		  }
+		  var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		  if(!emailVal.match(emailPattern)){
+				alert("이메일 형식이 올바르지 않습니다.")
+				$("[name=email]").focus();
+				return
+		  }
+		  
 		  /*
 		  var pwPattern = /^(?=.*[a-z])(?=.*\d)[a-z0-9_-]{5,15}$/;
 		  if(pswd1Obj.length < 5 || pswd1Obj.length > 15 || !pswd1Obj.value.match(pwPattern)){
@@ -718,12 +640,7 @@
 			}
 		  */
 		  
-			
-			
-			  
-			  
-
-		  document.querySelector("form").submit();
+		  document.querySelector("#eform").submit();
 	  }
   }
   

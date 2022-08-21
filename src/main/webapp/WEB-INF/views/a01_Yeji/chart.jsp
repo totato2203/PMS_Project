@@ -131,6 +131,7 @@
 			 new Chart(document.querySelector('#PrjHR'), {
 				    type: 'bar',
 				    data: {
+
 				      labels: prjno2,
 				      datasets: [{
 				        label: '프로젝트별 참여 사원 수',
@@ -231,6 +232,51 @@
 
 </script>
 
+	<!-- 프로젝트별 종합 품질점수 -->
+	
+	<canvas id="TotScore" style="height: 100px;"></canvas>
+	<script>
+    var tot = []
+    var prjno9 = []
+	$.ajax({
+		url:"${path}/getTotScore.do",
+		dataType:"json",
+		success:function(data){
+			var data = data.prjscore
+			$(data).each(function(idx, p){
+				tot.push(Number(p.tot))
+				prjno9.push(p.prjno)
+				
+		
+			})
+			 new Chart(document.querySelector('#TotScore'), {
+				    type: 'doughnut',
+				    data: {
+				      labels: prjno9,
+				      datasets: [{
+				        label: '품질점수 평균',
+				        data: tot,
+				        backgroundColor: [
+				          'rgba(255, 99, 132, 0.2)',
+				          'rgba(255, 159, 64, 0.2)',
+				          'rgba(255, 205, 86, 0.2)',
+				          'rgba(75, 192, 192, 0.2)',
+				          'rgba(54, 162, 235, 0.2)',
+				          'rgba(153, 102, 255, 0.2)',
+				          'rgba(201, 203, 207, 0.2)'
+				        ],
+						hoverOffset: 4
+				
+				      }]
+				    },
+	
+				  });
+		}
+	})
+	 
+
+</script>
+
 <!-- 각 프로젝트 대시보드 -->
 
 	<!-- 프로젝트P100N 진행상황 -->
@@ -250,7 +296,7 @@
 				prjno4.push(p.prjno)
 			})
 			 new Chart(document.querySelector('#PrjNRate'), {
-				    type: 'bar',
+				    type: 'horizontalBar',
 				    data: {
 				      labels: prjno4,
 				      datasets: [{
@@ -279,7 +325,7 @@
 				    },
 				    options: {
 				      scales: {
-				    	  yAxes: [{
+				    	  XAxes: [{
 				    		  ticks:{
 				    			  beginAtZero: true,
 				    			  max: 100
@@ -287,7 +333,7 @@
 				    	  }]
 				      }
 				    }
-				  });
+				  }); 
 		}
 	})
 	 

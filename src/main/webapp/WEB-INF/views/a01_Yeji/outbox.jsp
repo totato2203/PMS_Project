@@ -48,7 +48,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>AEAP<span>PMS</span></b></a>
+      <a href="${path}/indexprjWhole.do" class="logo"><b>AEAP<span>PMS</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -57,187 +57,58 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
+                <p class="green">Select Dashboard</p>
               </li>
               <li>
-                <a href="index.html#">
+              <c:if test="${emp.auth eq 'PM'}">
+                <a href="${path}/indexprjWhole.do">
                   <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
+                    <div class="desc">A Whole</div>
                   </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
+                </a>
+                </c:if>
+              </li>
+              <li>
+                <a href="${path}/indexprj1.do?prjno=P1000">					<!-- 추후 수정 -->
+                  <div class="task-info">
+                    <div class="desc">Project1</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprj1.do?prjno=P1001">					<!-- 추후 수정 -->
                   <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
+                    <div class="desc">Project2</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprj1.do?prjno=P1002">					<!-- 추후 수정 -->
                   <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
+                    <div class="desc">Project3</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="index.html#">
+                <a href="${path}/indexprj1.do?prjno=P1003">					<!-- 추후 수정 -->
                   <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
+                    <div class="desc">Project4</div>
                   </div>
                 </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
               </li>
             </ul>
           </li>
           <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
-              </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox dropdown end -->
-          <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-              <i class="fa fa-bell-o"></i>
-              <span class="badge bg-warning">7</span>
-              </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-yellow"></div>
-              <li>
-                <p class="yellow">You have 7 new notifications</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
-                  <span class="small italic">4 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
-                  <span class="small italic">30 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
-                  <span class="small italic">2 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
-                  <span class="small italic">3 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="${path }/logout.do">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -250,115 +121,75 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></a></p>
+          <h5 class="centered">${emp.ename}</h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="${path}/indexprjWhole.do">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
+              <span>대시보드</span>
+            </a>
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
+              <span>통합 프로젝트</span>
+            </a>
             <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
+              <li><a href="${path}/prjList.do">통합 프로젝트 관리</a></li>
+              <li><a href="${path}/prjInsertForm.do">프로젝트 등록</a></li>
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="404.html">404 Error</a></li>
-              <li><a href="500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
-              <li><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
+            <a href="${path}/prjSchdList.do ">
+              <i class="fa fa-calendar-o"></i>
+              <span>일정관리</span>
+            </a>
           </li>
           <li>
-            <a class="active" href="inbox.html">
+            <a href="${path}/cosPrjList.do">
+              <i class="fa fa-money"></i>
+              <span>재정관리</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-users"></i>
+              <span>인적자원관리</span>
+            </a>
+            <ul class="sub">
+              <li><a href="${path}/empList.do">전체 사원 관리</a></li>
+              <li><a href="${path}/prjEmpManage.do">프로젝트 사원 관리</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="${path}/prjlist.do">
+              <i class="fa fa-suitcase"></i>
+              <span>품질관리</span>
+            </a>
+          </li>
+          <li>
+            <a href="${path}/mailForm.do">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">3</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>Charts</span>
-              </a>
-            <ul class="sub">
-              <li><a href="morris.html">Morris</a></li>
-              <li><a href="chartjs.html">Chartjs</a></li>
-              <li><a href="flot_chart.html">Flot Charts</a></li>
-              <li><a href="xchart.html">xChart</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
+              <span>메일</span>
+            </a>
           </li>
           <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
+            <a href="${path}/chat.do">
+              <i class="fa fa-comments-o"></i>
+              <span>채팅</span>
               </a>
+          </li>
+          <li>
+            <a href="${path}/boardList.do">
+              <i class="fa fa-edit"></i>
+              <span>회의록</span>
+            </a>
+          </li>
+          <li>
+            <a href="${path}/introduce.do">
+              <i class="fa fa-info-circle"></i>
+              <span>AEAP소개</span>
+            </a>
           </li>
         </ul>
         <!-- sidebar menu end-->
@@ -381,7 +212,7 @@
                   </a>
                 <ul class="nav nav-pills nav-stacked mail-nav">
                   
-                  <li><a href="#"> <i class="fa fa-file-text-o"></i> 임시보관함 <span class="label label-info pull-right inbox-notification">8</span></a>
+                  <li><a href="#"> <i class="fa fa-file-text-o"></i> 임시보관함 <span class="label label-info pull-right inbox-notification"> ${mlist.size()}</span></a>
                   </li>
                 </ul>
               </div>
@@ -392,29 +223,13 @@
               <header class="panel-heading wht-bg">
                 <h4 class="gen-case">
                     임시보관함 ( ${mlist.size()} )
-                    <form action="#" class="pull-right mail-src-position">
-                      <div class="input-append">
-                        <input type="text" class="form-control" name="mailTitle" value="${param.mailTitle}" placeholder="Search Mail">
-                      </div>
-                    </form>
                   </h4>
               </header>
               <div class="panel-body minimal">
                 <div class="mail-option">
-                  <div class="chk-all">
+                 <div class="chk-all">
                     <div class="pull-left mail-checkbox">
-                      <input type="checkbox" class="">
-                    </div>
-                    <div class="btn-group">
-                      <a data-toggle="dropdown" href="#" class="btn mini all">
-                        모두보기
-                        <i class="fa fa-angle-down "></i>
-                        </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"> 선택안함</a></li>
-                        <li><a href="#"> 읽음</a></li>
-                        <li><a href="#"> 안읽음</a></li>
-                      </ul>
+                     전체 선택  <input type="checkbox" class="" id="allCheck" name="allCheck">
                     </div>
                   </div>
                   <div class="btn-group">
@@ -423,7 +238,7 @@
                       </a>
                   </div>
           		  <div class="compose-btn">
-                      <button class="btn btn-sm"><i class="fa fa-times"></i> 삭제</button>
+                      <button onclick="deleteValue();" class="btn btn-sm"><i class="fa fa-times"></i> 삭제</button>
                   </div>       
                  
                   <ul class="unstyled inbox-pagination">
@@ -437,22 +252,24 @@
                   </ul>
                 </div>
                 <div class="table-inbox-wrap ">
+                <form action="" method="post">
                   <table class="table table-inbox table-hover">
-                    <tbody>
+                    <tbody id="reportList">
                     <c:forEach var="mail" items="${mlist}">
                       <tr class="unread" ondblclick="goDetail(${mail.mailNum})">
                         <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
+                          <input type="checkbox" class="mail-checkbox" name="RowCheck" value="${mail.mailNum}">
                         </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td> 
                         <td class="view-message  dont-show">${mail.receiver}</td>
                         <td class="view-message ">${mail.mailTitle}</td>
-                        <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"><input type="hidden" value="${mail.mailNum}"></i></td>
+                        <td class="view-message  inbox-small-cells"><input type="hidden" value="${mail.mailNum}"></td>
                         <td class="view-message  text-right"><fmt:formatDate value="${mail.mailRegdte}"/></td>
                       </tr>  
                       </c:forEach>
                     </tbody>
                   </table>
+                  </form>
                 </div>
               </div>
             </section>
@@ -494,11 +311,57 @@
   <!--common script for all pages-->
   <script src="${path}/Dashio/lib/common-scripts.js"></script>
   <!--script for this page-->
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script type="text/javascript">
  
 function goDetail(mailNum) {
-	 location.href="${path}/outboxDetail.do?mailNum="?+mailNum;
+	location.href="${path}/outboxDetail.do?mailNum="+mailNum;
 }
+ 
+$(function(){
+	var chkObj = document.getElementByName=("RowCheck");
+	var rowCnt = chkObj.length;
+	
+	$("input[name='allCheck']").click(function(){
+		var chk_listArr = $("input[name='RowCheck']");
+		for (var i=0; i<chk_listArr.length; i++){
+			chk_listArr[i].checkd = this.checked;
+		}
+	});
+	$("input[name='RowCheck']").click(function(){
+		if($("input[name='RowCheck']:checked").length == rowCnt){
+			$("input[name='allCheck']")[0].checkd = true;
+		}
+		else{
+			$("input[name='allCheck']")[0].checked = false;
+		}
+	});
+});
+function deleteValue(){
+	var url = "${path}/deleteOutbox.do";
+	var valueArr = new Array();
+	var list = $("input[name='RowCheck']");
+	for(var i=0; i<list.length; i++){
+		if(list[i].checked){
+			valueArr.push(list[i].value);
+		}
+	}
+	if(valueArr.length ==0){
+		alert("선택된 메일이 없습니다.");
+	}
+	else{
+		var chk = confirm("정말 삭제하시겠습니까?");
+		$("form").attr("action","${path}/deleteOutbox.do");
+		$("form").submit();
+	}
+}
+var proc = "${proc}"
+
+	if(proc=="del"){
+		alert("삭제성공\n리스트화면으로 이동!")
+		location.href="${path}/outboxList.do";
+		
+	}
 
 </script>
 </body>

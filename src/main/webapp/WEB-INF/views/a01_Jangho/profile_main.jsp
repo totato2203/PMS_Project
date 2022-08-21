@@ -44,6 +44,16 @@
 
 <body>
   <section id="container">
+  
+  
+  
+  
+  
+										<!-- 여기부터 복사 -->  
+  
+  
+  
+  
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -76,21 +86,21 @@
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1000">					<!-- 추후 수정 -->
+                <a href="${path}/indexprjWhole.do?prjno=P1000">
                   <div class="task-info">
                     <div class="desc">Project1</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1001">					<!-- 추후 수정 -->
+                <a href="${path}/indexprjWhole.do?prjno=P1001">
                   <div class="task-info">
                     <div class="desc">Project2</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/indexprjWhole.do?prjno=P1002">					<!-- 추후 수정 -->
+                <a href="${path}/indexprjWhole.do?prjno=P1002">
                   <div class="task-info">
                     <div class="desc">Project3</div>
                   </div>
@@ -108,6 +118,15 @@
         </ul>
       </div>
     </header>
+    <script type="text/javascript">
+    
+    // session 만료 시 로그아웃 
+   var sessionVal = "${emp.id}"
+   if(sessionVal == ""){
+      alert("세션이 만료되어 로그인 페이지로 이동합니다.")
+      location.href="${path}/logout.do"
+   }
+    </script>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
@@ -118,7 +137,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></a></p>
-          <h5 class="centered">${emp.ename}</h5>
+          <h5 class="centered">${emp.ename}<br>(${emp.empno})</h5>
           <li class="mt">
             <a href="${path}/indexprjWhole.do">
               <i class="fa fa-dashboard"></i>
@@ -132,7 +151,9 @@
             </a>
             <ul class="sub">
               <li><a href="${path}/prjList.do">통합 프로젝트 관리</a></li>
-              <li><a href="${path}/prjInsertForm.do">프로젝트 등록</a></li>
+              <li>
+              <c:if test="${emp.auth == 'PM'}"> <a href="${path}/prjInsertForm.do">프로젝트 등록</a> </c:if>
+              </li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -141,12 +162,15 @@
               <span>일정관리</span>
             </a>
           </li>
+           <c:if test="${emp.auth != '사원'}">
           <li>
-            <a href="${path}/cosPrjList.do">
+             <a href="${path}/cosPrjList.do">
               <i class="fa fa-money"></i>
               <span>재정관리</span>
             </a>
           </li>
+         </c:if>
+
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-users"></i>
@@ -192,6 +216,11 @@
       </div>
     </aside>
     <!--sidebar end-->
+    
+    
+    										<!-- 여기까지 복사 -->
+    
+    
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
@@ -222,18 +251,7 @@
               <!-- /col-md-4 -->
               <div class="col-md-4 centered">
                 <div>
-                	<h5>* 서버 로컬 이미지 불러오기 테스트 중입니다.</h5>
-                  <p><img src="/image/${emp.eimage}" width=160></p>
-                  <p><img src="/images/${emp.eimage}" width=160></p>
-                  <p><img src="/image/z01_HRFileupload/${emp.eimage}" width=160></p>
-                  <p><img src="/images/z01_HRFileupload/${emp.eimage}" width=160></p>
-                  <p><img src="/z01_HRFileupload/${emp.eimage}" width=160></p>
-                  <p><img src="/pms/z01_HRFileupload/${emp.eimage}" width=160 class="img-circle"></p>
-                  <p><img src="http://106.10.18.69:3030/pms/images/${emp.eimage}" width=160></p>
-                  <p><img src="http://106.10.18.69:3030/pms/z01_HRFileupload/${emp.eimage}" width=160></p>
-                  <p><img src="http://106.10.18.69:3030/pms/profile.do/images/${emp.eimage}" width=160></p>
-                  <p><img src="http://106.10.18.69:3030/pms/profile.do/z01_HRFileupload/${emp.eimage}" width=160></p>
-                  <p><img src="/images/${emp.eimage}" width=160></p>
+                  <p><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></p>
                 </div>
               </div>
               <!-- /col-md-4 -->
@@ -260,9 +278,9 @@
                     <div class="row">
                     <h3>　　　<i class="fa fa-angle-right"></i> 프로필 조회</h3>
                       <div class="col-lg-8 col-lg-offset-2 detailed">
-
+                      <h4 class="mb">Personal Information</h4>
                         <form role="form" class="form-horizontal">
-                        <br><br><br>
+                        <br>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">사원번호</label>
                             <div class="col-lg-6">
@@ -329,11 +347,33 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">프로필 이미지</label>
+                            <label class="col-lg-2 control-label">연봉</label>
                             <div class="col-lg-6">
-                              <img src="${path}/z01_HRFileupload/${emp.eimage}" width="100">
+                              <h5>${emp.sal}</h5>
                             </div>
                           </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">중요도</label>
+                            <div class="col-lg-6">
+                              <h5>${emp.eImportant}</h5>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">프로필 이미지</label>
+                            <div class="col-lg-6">
+                              <img src="${path}/z01_HRFileupload/${emp.eimage}" width="160">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">소개글</label>
+                            <div class="col-lg-6">
+                              <h5>${emp.description}</h5>
+                            </div>
+                          </div>
+                          <br><br>
+                          
+                          <h4 class="mb">Contact Information</h4>
+                          <br>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">주소</label>
                             <div class="col-lg-6">
@@ -352,12 +392,7 @@
                               <h5>${emp.email}</h5>
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">소개글</label>
-                            <div class="col-lg-6">
-                              <h5>${emp.description}</h5>
-                            </div>
-                          </div>
+                          
                         </form>
                       </div>
                     </div>
@@ -368,9 +403,9 @@
                     <div class="row">
                     <h3>　　　<i class="fa fa-angle-right"></i> 프로필 수정</h3>
                       <div class="col-lg-8 col-lg-offset-2 detailed">
-
+                      	<h4 class="mb">Personal Information</h4>
                         <form id="update" class="form-horizontal" action="${path}/profileUpdate.do" enctype="multipart/form-data" method="post">
-                        <br><br><br>
+                        <br>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">사원번호</label>
                             <div class="col-lg-6">
@@ -441,6 +476,7 @@
                               	value="${emp.job}" readonly>
                             </div>
                           </div>
+                          
                           <div class="form-group">
                             <label class="col-lg-2 control-label">권한</label>
                             <div class="col-lg-6">
@@ -470,12 +506,37 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">프로필 이미지</label>
+                            <label class="col-lg-2 control-label">연봉</label>
+                            <div class="col-lg-6">
+                              <input type="text" id="sal" name="sal" class="form-control"
+                              	value="${emp.sal}" readonly>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">중요도</label>
+                            <div class="col-lg-6">
+                              <input type="text" id="eImportant" name="eImportant" class="form-control"
+                              	value="${emp.eImportant}" readonly>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">프로필 사진</label>
                             <div class="col-lg-6">
                               <input type="file" id="eimage" name="report" class="file-pos">
                             </div>
                           </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">소개글</label>
+                            <div class="col-lg-6">
+                              <input type="text" id="description" name="description" class="form-control"
+                              	value="${emp.description}">
+                            </div>
+                          </div>
                           
+                          <br><br>
+                          
+                          <h4 class="mb">Contact Information</h4>
+                          <br>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">주소</label>
                             <div class="col-lg-6">
@@ -497,13 +558,7 @@
                               	value="${emp.email}">
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">소개글</label>
-                            <div class="col-lg-6">
-                              <input type="text" id="description" name="description" class="form-control"
-                              	value="${emp.description}">
-                            </div>
-                          </div>
+                          
                         </form>
                        <center><button class="btn btn-theme" type="button" onclick="check()">수정</button></center>
                       </div>
@@ -572,6 +627,11 @@
 		    		if(data.hasEmp){
 		    			alert("이미 존재하는 아이디 입니다!\n다른 아이디를 입력하세요.")
 		    			$("[name=id]").val("").focus();
+		    			$("#idMsg").text("　");
+		    		}else if($("[name=id]").val() == ""){
+		    			alert("아이디를 입력하세요.")
+		    			$("[name=id]").focus();
+		    			$("#idMsg").text("　");
 		    		}else{
 		    			alert("사용 가능한 아이디 입니다!")
 		    			$("[name=idConfirm]").val("idCheck");
@@ -599,7 +659,16 @@
 			if(pwVal.length>=8 && pwVal.length<=16){
 				$("#pwMsg").text("유효한 비밀번호 입니다.").css("color","green")
 			} else {
-				$("#pwMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")	  
+				$("#pwMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")
+			}
+			if(pw_confirmVal.length != 0 && pw_confirmVal != pwVal){
+				$("#pw_confirmMsg").text("비밀번호와 일치하지 않습니다.").css("color","red")
+			}
+			if(pw_confirmVal.length != 0 && pw_confirmVal == pwVal){
+				$("#pw_confirmMsg").text("비밀번호와 일치합니다.").css("color","green")
+				if(!(pw_confirmVal.length>=8 && pw_confirmVal.length<=16)){
+					$("#pw_confirmMsg").text("유효하지 않은 비밀번호 입니다.").css("color","red")
+				}
 			}
 		});
 		$("[name=pw_confirm]").keyup(function(){
@@ -626,10 +695,14 @@ function check(){
 	      var enameVal = $("[name=ename]").val();
 	      var genderVal = $("[name=gender]").val();
 	      var birthVal = $("[name=birthS]").val();
-	      var addressVal = $("[name=address]").val();
-	      var phoneNumVal = $("[name=phoneNum]").val();
-	      var emailVal = $("[name=email]").val();
-	      var descriptionVal = $("[name=description]").val();
+	      var jobVal = $("[name=job]").val();
+	      var authVal = $("[name=auth]").val();
+	      var deptnoVal = $("[name=deptno]").val();
+		  var hiredateVal = $("[name=hiredateS]").val();
+	      var salVal = $("[name=sal]").val();
+		  var eImportantVal = $("[name=eImportant]").val();
+		  var emailVal = $("[name=email]").val();
+		  var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
 	      if(idVal == ""){
 	         alert("아이디를 입력하세요");
@@ -676,29 +749,49 @@ function check(){
 	         return;
 	      }
 	      if(birthVal == ""){
-	         alert("생일을 입력하세요");
+	         alert("생년월일을 선택하세요");
 	         $("[name=birthS]").focus();
 	         return;
 	      }
-	      if(addressVal == ""){
-			 alert("주소를 입력하세요");
-			 $("[name=address]").focus();
-			 return;
+		  if(jobVal == ""){
+		     alert("직책을 선택하세요");
+		     $("[name=job]").focus();
+		     return;
 		  }
-	      if(phoneNumVal == ""){
-			 alert("전화번호를 입력하세요");
-			 $("[name=phoneNum]").focus();
-			 return;
+		  if(authVal == ""){
+		     alert("권한을 선택하세요");
+		     $("[name=auth]").focus();
+		     return;
 		  }
-	      if(emailVal == ""){
-			 alert("이메일을 입력하세요");
-			 $("[name=email]").focus();
-			 return;
+		  if(deptnoVal == ""){
+		     alert("부서를 선택하세요");
+		     $("[name=deptno]").focus();
+		     return;
 		  }
-	      if(descriptionVal == ""){
-			 alert("소개글을 입력하세요");
-			 $("[name=description]").focus();
-			 return;
+		  if(hiredateVal == ""){
+		     alert("입사일을 선택하세요");
+		     $("[name=hiredateS]").focus();
+		     return;
+		  }
+		  if(salVal == ""){
+			  alert("연봉을 입력하세요");
+			  $("[name=sal]").focus();
+			  return;
+		  }
+		  if(eImportantVal == ""){
+			  alert("중요도를 선택하세요");
+			  $("[name=eImportant]").focus();
+			  return;
+		  }
+		  if(emailVal == ""){
+			  alert("이메일을 입력하세요");
+			  $("[name=email]").focus();
+			  return;
+		  }
+		  if(!emailVal.match(emailPattern)){
+				alert("이메일 형식이 올바르지 않습니다.")
+				$("[name=email]").focus();
+				return
 		  }
 	      alert("프로필 수정 완료!\n다시 로그인 해주세요.")
 	      document.querySelector("#update").submit();

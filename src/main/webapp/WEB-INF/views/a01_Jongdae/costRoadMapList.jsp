@@ -45,205 +45,79 @@
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
+<!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
     <!--header start-->
     <header class="header black-bg">
       <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="${path}/Dashio/index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="${path}/indexprjWhole.do" class="logo"><b>AEAP<span>PMS</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
         <ul class="nav top-menu">
           <!-- settings start -->
           <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="${path}/Dashio/index.html#">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
+                <p class="green">Select Dashboard</p>
               </li>
               <li>
-                <a href="${path}/Dashio/index.html#">
+                <a href="${path}/indexprjWhole.do">
                   <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
+                    <div class="desc">A Whole</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/Dashio/index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1000">
                   <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
+                    <div class="desc">Project1</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/Dashio/index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1001">
                   <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
+                    <div class="desc">Project2</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="${path}/Dashio/index.html#">
+                <a href="${path}/indexprjWhole.do?prjno=P1002">
                   <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
+                    <div class="desc">Project3</div>
                   </div>
                 </a>
-              </li>
-              <li class="external">
-                <a href="${path}/Dashio/#">See All Tasks</a>
               </li>
             </ul>
           </li>
           <!-- settings end -->
-          <!-- inbox dropdown start-->
-          <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="${path}/Dashio/index.html#">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
-              </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-green"></div>
-              <li>
-                <p class="green">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="photo"><img alt="avatar" src="${path}/Dashio/img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="photo"><img alt="avatar" src="${path}/Dashio/img/ui-divya.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="photo"><img alt="avatar" src="${path}/Dashio/img/ui-danro.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="photo"><img alt="avatar" src="${path}/Dashio/img/ui-sherman.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox dropdown end -->
-          <!-- notification dropdown start-->
-          <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="${path}/Dashio/index.html#">
-              <i class="fa fa-bell-o"></i>
-              <span class="badge bg-warning">7</span>
-              </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-yellow"></div>
-              <li>
-                <p class="yellow">You have 7 new notifications</p>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
-                  <span class="small italic">4 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
-                  <span class="small italic">30 mins.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
-                  <span class="small italic">2 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
-                  <span class="small italic">3 hrs.</span>
-                  </a>
-              </li>
-              <li>
-                <a href="${path}/Dashio/index.html#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="${path}/Dashio/login.html">Logout</a></li>
+          <li><a class="logout" href="${path }/logout.do">Logout</a></li>
         </ul>
       </div>
     </header>
+    <script type="text/javascript">
+    
+    // session 만료 시 로그아웃 
+   var sessionVal = "${emp.id}"
+   if(sessionVal == ""){
+      alert("세션이 만료되어 로그인 페이지로 이동합니다.")
+      location.href="${path}/logout.do"
+   }
+    </script>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
@@ -253,115 +127,80 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="${path}/Dashio/profile.html"><img src="${path}/Dashio/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <p class="centered"><a href="${path}/profile.do"><img src="${path}/z01_HRFileupload/${emp.eimage}" width=160></a></p>
+          <h5 class="centered">${emp.ename}<br>(${emp.empno})</h5>
           <li class="mt">
-            <a href="${path}/Dashio/index.html">
+            <a href="${path}/indexprjWhole.do">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
+              <span>대시보드</span>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
+              <span>통합 프로젝트</span>
+            </a>
             <ul class="sub">
-              <li><a href="${path}/Dashio/general.html">General</a></li>
-              <li><a href="${path}/Dashio/buttons.html">Buttons</a></li>
-              <li><a href="${path}/Dashio/panels.html">Panels</a></li>
-              <li><a href="${path}/Dashio/font_awesome.html">Font Awesome</a></li>
+              <li><a href="${path}/prjList.do">통합 프로젝트 관리</a></li>
+              <li>
+              <c:if test="${emp.auth == 'PM'}"> <a href="${path}/prjInsertForm.do">프로젝트 등록</a> </c:if>
+              </li>
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
+            <a href="${path}/prjSchdList.do ">
+              <i class="fa fa-calendar-o"></i>
+              <span>일정관리</span>
+            </a>
+          </li>
+           <c:if test="${emp.auth != '사원'}">
+          <li>
+             <a href="${path}/cosPrjList.do">
+              <i class="fa fa-money"></i>
+              <span>재정관리</span>
+            </a>
+          </li>
+         </c:if>
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-users"></i>
+              <span>인적자원관리</span>
+            </a>
             <ul class="sub">
-              <li><a href="${path}/Dashio/grids.html">Grids</a></li>
-              <li><a href="${path}/Dashio/calendar.html">Calendar</a></li>
-              <li><a href="${path}/Dashio/gallery.html">Gallery</a></li>
-              <li><a href="${path}/Dashio/todo_list.html">Todo List</a></li>
-              <li><a href="${path}/Dashio/dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="${path}/Dashio/inline_editor.html">Inline Editor</a></li>
-              <li><a href="${path}/Dashio/file_upload.html">Multiple File Upload</a></li>
+              <li><a href="${path}/empList.do">전체 사원 관리</a></li>
+              <li><a href="${path}/prjEmpManage.do">프로젝트 사원 관리</a></li>
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="${path}/Dashio/blank.html">Blank Page</a></li>
-              <li><a href="${path}/Dashio/login.html">Login</a></li>
-              <li><a href="${path}/Dashio/lock_screen.html">Lock Screen</a></li>
-              <li><a href="${path}/Dashio/profile.html">Profile</a></li>
-              <li><a href="${path}/Dashio/invoice.html">Invoice</a></li>
-              <li><a href="${path}/Dashio/pricing_table.html">Pricing Table</a></li>
-              <li><a href="${path}/Dashio/faq.html">FAQ</a></li>
-              <li><a href="${path}/Dashio/404.html">404 Error</a></li>
-              <li><a href="${path}/Dashio/500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="${path}/Dashio/form_component.html">Form Components</a></li>
-              <li><a href="${path}/Dashio/advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="${path}/Dashio/form_validation.html">Form Validation</a></li>
-              <li><a href="${path}/Dashio/contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a class="active" href="${path}/Dashio/javascript:;">
-              <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li><a href="${path}/Dashio/basic_table.html">Basic Table</a></li>
-              <li><a href="${path}/Dashio/responsive_table.html">Responsive Table</a></li>
-              <li class="active"><a href="${path}/Dashio/advanced_table.html">Advanced Table</a></li>
-            </ul>
+            <a href="${path}/prjlist.do">
+              <i class="fa fa-suitcase"></i>
+              <span>품질관리</span>
+            </a>
           </li>
           <li>
-            <a href="${path}/Dashio/inbox.html">
+            <a href="${path}/mailForm.do">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>Charts</span>
-              </a>
-            <ul class="sub">
-              <li><a href="${path}/Dashio/morris.html">Morris</a></li>
-              <li><a href="${path}/Dashio/chartjs.html">Chartjs</a></li>
-              <li><a href="${path}/Dashio/flot_chart.html">Flot Charts</a></li>
-              <li><a href="${path}/Dashio/xchart.html">xChart</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="${path}/Dashio/javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="${path}/Dashio/lobby.html">Lobby</a></li>
-              <li><a href="${path}/Dashio/chat_room.html"> Chat Room</a></li>
-            </ul>
+              <span>메일</span>
+            </a>
           </li>
           <li>
-            <a href="${path}/Dashio/google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
+            <a href="${path}/chat.do">
+              <i class="fa fa-comments-o"></i>
+              <span>채팅</span>
               </a>
+          </li>
+          <li>
+            <a href="${path}/boardList.do">
+              <i class="fa fa-edit"></i>
+              <span>회의록</span>
+            </a>
+          </li>
+          <li>
+            <a href="${path}/introduce.do">
+              <i class="fa fa-info-circle"></i>
+              <span>AEAP소개</span>
+            </a>
           </li>
         </ul>
         <!-- sidebar menu end-->
@@ -374,8 +213,7 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>  비용 관리 <i class="fa fa-angle-right"></i>
-        	프로젝트 <i class="fa fa-angle-right"></i> 로드맵</h3>
+        <h3><i class="fa fa-angle-right"></i>  비용 관리 <i class="fa fa-angle-right"></i> 로드맵</h3>
         <div class="row mb">
           <!-- page start-->
           <div class="content-panel">
@@ -438,7 +276,7 @@
 					</thead>
 					<tbody>
                             <tr>
-                                <td>${prjcost.prjName}</td>
+                                <td>${prjcost.ename}</td>
                                 <td>${prjcost.prjFinance}</td>
                                 <td>${prjcost.eqpmnCost}</td>
                                 <td>${prjcost.materialCost}</td>

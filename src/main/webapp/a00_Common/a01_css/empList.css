@@ -64,10 +64,33 @@
 }
 
 #pagination{
-	padding-left:47%;
+	float: right;
+	margin-right: 5%;
 }
 
 .pagination>.active>a {
 	background-color: #5bc0de;
 	border-color: #5bc0de;
+}
+
+
+#pageCnt{
+	display: flex;
+}
+
+#paging {
+    float: right;
+    display: flex;
+    padding-left: 75%;
+}
+.text-center {
+    text-align: center;
+    /*padding-top: 10px;*/
+}
+
+.table {
+    width: 90%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-left: 5%;
 }
