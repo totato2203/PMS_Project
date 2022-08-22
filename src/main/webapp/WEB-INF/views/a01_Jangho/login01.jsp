@@ -107,7 +107,7 @@
   
 	var isLogin = "${isLogin}"
 		if(isLogin=="Y"){
-			location.href="${path}/indexprjWhole.do"	// 임시 링크, 추후 메인화면(대시보드)로 연결 예정
+			location.href="${path}/indexprjWhole.do"
 		}
 		if(isLogin=="N"){
 			alert("${msg}")
